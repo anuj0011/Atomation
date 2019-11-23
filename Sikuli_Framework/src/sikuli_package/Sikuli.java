@@ -46,5 +46,6 @@ public class Sikuli {
 	  screen.type(image6,"1234567890");
 	  screen.click(image5);
 	  screen.click(image8);
+	  System.out.println("anu");
   } 
 }

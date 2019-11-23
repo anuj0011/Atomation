@@ -1,0 +1,13 @@
+ <suite name="test suit1" >
+ 
+ <test name="tools sqa1" >
+ 
+ <classes> 
+ 
+ <class name="testng_FramWork.Login"/>
+ 
+ </classes>
+ 
+ </test>
+ 
+ </suite>

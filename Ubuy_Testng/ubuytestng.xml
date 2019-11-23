@@ -1,0 +1,13 @@
+ <suite name="test suit" >
+ 
+ <test name="tools sqa" >
+ 
+ <classes> 
+ 
+ <class name="pkg_testng.ClsTestng"/>
+ 
+ </classes>
+ 
+ </test>
+ 
+ </suite>

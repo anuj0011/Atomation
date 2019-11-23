@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [testsuite]">
+  <test thread-count="5" name="testtest(failed)">
+    <classes>
+      <class name="abroad_chrome.abroadTest">
+        <methods>
+          <include name="f"/>
+        </methods>
+      </class> <!-- abroad_chrome.abroadTest -->
+    </classes>
+  </test> <!-- testtest(failed) -->
+</suite> <!-- Failed suite [testsuite] -->

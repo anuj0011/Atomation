@@ -1,0 +1,13 @@
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+ 
+<suite name="RetryFailedTests" verbose="1" >
+ <listeners>
+        <listener class-name="abroad_chrome.RuntimeRetry"/>
+  </listeners>
+  <test name="RetryMulitpleTest Cases">
+    <classes>
+      <class name="abroad_chrome.abroadTest"/>
+    </classes>
+  </test>
+</suite>

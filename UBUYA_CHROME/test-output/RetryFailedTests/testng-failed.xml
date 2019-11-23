@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [RetryFailedTests]">
+  <listeners>
+    <listener class-name="abroad_chrome.RuntimeRetry"/>
+  </listeners>
+  <test thread-count="5" name="RetryMulitpleTest Cases(failed)">
+    <classes>
+      <class name="abroad_chrome.NewTest">
+        <methods>
+          <include name="afterClass"/>
+          <include name="afterTest"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+          <include name="beforeTest"/>
+          <include name="afterMethod"/>
+          <include name="beforeClass"/>
+          <include name="f"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- abroad_chrome.NewTest -->
+    </classes>
+  </test> <!-- RetryMulitpleTest Cases(failed) -->
+</suite> <!-- Failed suite [RetryFailedTests] -->

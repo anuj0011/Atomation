@@ -28,8 +28,7 @@ public class AppRunner {
 
 		AndroidDriver<WebElement> driver = new AndroidDriver<>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
 
-		// AppiumDriver driver = new AppiumDriver(new URL("http://0.0.0.0:4723/wd/hub"),
-		// caps);
+		
 
 		Thread.sleep(7000);
 

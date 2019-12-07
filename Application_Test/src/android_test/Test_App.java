@@ -81,7 +81,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  DesiredCapabilities capabilities = new DesiredCapabilities();
  capabilities.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
  capabilities.setCapability("deviceName", "554c50d2");
- capabilities.setCapability("platformVersion", "9");
+ capabilities.setCapability("platformVersion", "7.1.1");
  capabilities.setCapability("platformName", "Android");
  // capabilities.setCapability("appPackage", "com.ubuy");
  // capabilities.setCapability("appActivity", "com.app.mazade.ubuy.MainActivity");

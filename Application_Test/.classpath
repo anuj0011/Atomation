@@ -2,8 +2,6 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="D:/Lib/selenium-server-standalone-2.53.0.jar"/>
-	<classpathentry kind="lib" path="D:/Lib/gson-2.2.2.jar/gson-2.2.2.jar"/>
 	<classpathentry kind="lib" path="D:/Lib/App auto drivers/byte-buddy-1.7.9.jar"/>
 	<classpathentry kind="lib" path="D:/Lib/App auto drivers/client-combined-3.11.0.jar"/>
 	<classpathentry kind="lib" path="D:/Lib/App auto drivers/client-combined-3.11.0-sources.jar"/>
@@ -11,15 +9,12 @@
 	<classpathentry kind="lib" path="D:/Lib/App auto drivers/commons-exec-1.3.jar"/>
 	<classpathentry kind="lib" path="D:/Lib/App auto drivers/commons-lang3-3.7.jar"/>
 	<classpathentry kind="lib" path="D:/Lib/App auto drivers/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="D:/Lib/App auto drivers/gson-2.8.2.jar"/>
 	<classpathentry kind="lib" path="D:/Lib/App auto drivers/guava-23.6-jre.jar"/>
 	<classpathentry kind="lib" path="D:/Lib/App auto drivers/hamcrest-core-1.3.jar"/>
 	<classpathentry kind="lib" path="D:/Lib/App auto drivers/httpclient-4.5.3.jar"/>
 	<classpathentry kind="lib" path="D:/Lib/App auto drivers/httpcore-4.4.6.jar"/>
 	<classpathentry kind="lib" path="D:/Lib/App auto drivers/junit-4.12.jar"/>
-	<classpathentry kind="lib" path="D:/Lib/App auto drivers/selenium-server-standalone-2.53.0.jar"/>
 	<classpathentry kind="lib" path="D:/Lib/App auto drivers/testng-6.9.9.jar"/>
-	<classpathentry kind="lib" path="D:/Lib/java-client-5.0.4.jar"/>
 	<classpathentry kind="lib" path="D:/Lib/selenium-android-driver.jar"/>
 	<classpathentry kind="lib" path="D:/Lib/Poi apache to read excel/poi-bin-4.0.1-20181203/poi-4.0.1/poi-4.0.1.jar"/>
 	<classpathentry kind="lib" path="D:/Lib/Poi apache to read excel/poi-bin-4.0.1-20181203/poi-4.0.1/poi-examples-4.0.1.jar"/>
@@ -32,5 +27,11 @@
 	<classpathentry kind="lib" path="D:/Lib/org.apache.commons.io.jar/org.apache.commons.io.jar"/>
 	<classpathentry kind="lib" path="D:/Lib/dom4j-1.6.jar/dom4j-1.6.jar"/>
 	<classpathentry kind="lib" path="D:/Lib/commons-compress-1.18.jar"/>
+	<classpathentry kind="lib" path="D:/Lib/App auto drivers/gson-2.8.2.jar"/>
+	<classpathentry kind="lib" path="D:/Lib/selenium-java-3.6.0.jar"/>
+	<classpathentry kind="lib" path="D:/Lib/okhttp-3.10.0.jar"/>
+	<classpathentry kind="lib" path="D:/Lib/okio-1.11.0.jar"/>
+	<classpathentry kind="lib" path="D:/Lib/testng-6.7.jar"/>
+	<classpathentry kind="lib" path="D:/Lib/App auto drivers/java-client-6.0.0-BETA4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

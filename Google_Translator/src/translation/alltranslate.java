@@ -35,32 +35,23 @@ public class alltranslate {
     	{ 
     	String text = sheet.getRow(i).getCell(0).getStringCellValue();
     	
-        System.out.println("" + translate("en", "de", text));
-        String trantext = translate("en", "ja", text);
+        System.out.println("" + translate("en", "no", text));
+        String trantext = translate("en", "no", text);
         
-     // TO WRITE DATE IN EXCEL
+        // TO WRITE DATE IN EXCEL
         
         FileWriter fw = new FileWriter("D:\\ExcelWriteAutomated\\userreview.text",true);
 		BufferedWriter bw = new BufferedWriter(fw);
 		PrintWriter pw = new PrintWriter(bw);
 		
-		
 		//String encoded = URLEncoder.encode(trantext, "UTF-8");
 		pw.println(trantext);
 		pw.flush();
 		pw.close();
-        
-		System.out.println("anu");
 		
-		
-		
-		
-    	}
-    		
+    	}	
     }
-     
-    
-    
+       
     private static String translate(String langFrom, String langTo, String text) throws IOException {
         // INSERT YOU URL HERE
         String urlStr = "https://script.google.com/macros/s/AKfycbx4WxS_cC1T5hSAoqia-MN3kLx-GM7kQLC7aFm1JSRjUNFkxkgK/exec" +
@@ -79,5 +70,4 @@ public class alltranslate {
         in.close();
         return response.toString();
     }
-
 }

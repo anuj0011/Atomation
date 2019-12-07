@@ -2,6 +2,7 @@
 
 package scrap;
 
+import java.awt.AWTException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -25,18 +26,18 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.sikuli.script.FindFailed;
 
-public class Scrapping {
+public class Scrapping extends Sikuli {
 
-	public static void main(String[] args) throws IOException, InterruptedException {
+	public static void main(String[] args) throws IOException, InterruptedException, FindFailed, AWTException {
 
 		// *** OPENING TOR BROWSER ***
 
 		/*
-		 * System.setProperty("webdriver.firefox.marionette",
-		 * "D:\\Lib\\geckodriver.exe"); String torPath =
-		 * "C:\\Users\\HP\\Desktop\\Tor Browser\\Browser\\firefox.exe"; String
-		 * profilePath =
+		 * System.setProperty("webdriver.gecko.driver", "D:\\Lib\\geckodriver.exe");
+		 * String torPath = "C:\\Users\\HP\\Desktop\\Tor Browser\\Browser\\firefox.exe";
+		 * String profilePath =
 		 * "C:\\Users\\HP\\Desktop\\Tor Browser\\Browser\\TorBrowser\\Data\\Browser\\profile.default"
 		 * ;
 		 * 
@@ -52,12 +53,21 @@ public class Scrapping {
 
 		JSONObject o1 = new JSONObject();
 
+		/*
+		 * System.setProperty("webdriver.gecko.driver",
+		 * "D:\\Lib\\geckodriver-v0.26.0-win64\\geckodriver.exe"); WebDriver driver =
+		 * new FirefoxDriver();
+		 */
+
 		System.setProperty("webdriver.chrome.driver",
 				"D:\\Lib\\chrome_driver_latest\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 
-		driver.get("https://www.amazon.com");
 		driver.manage().window().maximize();
+
+		// browserproxy();
+
+		driver.get("https://www.amazon.com");
 		driver.findElement(By.xpath("//span[@id='glow-ingress-line2']")).click();
 		driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
 		String Parent_Window1 = driver.getWindowHandle();
@@ -177,7 +187,7 @@ public class Scrapping {
 								.findElement(
 										By.xpath("//td[contains(text(),' pounds ') or contains(text(),' ounces ')]"))
 								.getText();
-						
+
 						// TO BREAK THE ELEMENT TEXT
 						String[] wordss = weight.split(Pattern.quote(" ("));
 						String part4 = wordss[0];

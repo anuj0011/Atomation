@@ -1,10 +1,12 @@
 package MavenAppium.TestAppium;
 
+import java.awt.Desktop.Action;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.MobileElement;
@@ -25,10 +27,7 @@ public class AppRunner {
 		caps.setCapability("noReset", "true");
 		caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "60");
 		
-
 		AndroidDriver<WebElement> driver = new AndroidDriver<>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
-
-		
 
 		Thread.sleep(7000);
 
@@ -46,8 +45,11 @@ public class AppRunner {
 		driver.findElement(By.xpath("//android.widget.TextView[@text='What are you looking for?']")).click();
 		
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+	    Actions action = new Actions(driver);
+	    action.sendKeys("lenovo").perform();
+	    
 
-		driver.getKeyboard().sendKeys("lenovo");
+		
 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.findElement(By.id("com.ubuy:id/imageView4")).click();

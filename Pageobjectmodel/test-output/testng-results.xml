@@ -2,16 +2,17 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="15944" started-at="2019-11-30T13:12:40Z" finished-at="2019-11-30T13:12:56Z">
+  <suite name="Default suite" duration-ms="14679" started-at="2019-12-09T09:56:49Z" finished-at="2019-12-09T09:57:04Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="15944" started-at="2019-11-30T13:12:40Z" finished-at="2019-11-30T13:12:56Z">
+    <test name="Default test" duration-ms="14679" started-at="2019-12-09T09:56:49Z" finished-at="2019-12-09T09:57:04Z">
       <class name="pom.pomdemo">
-        <test-method status="FAIL" signature="f()[pri:0, instance:pom.pomdemo@5dfcfece]" name="f" duration-ms="15904" started-at="2019-11-30T13:12:40Z" finished-at="2019-11-30T13:12:56Z">
+        <test-method status="FAIL" signature="f()[pri:0, instance:pom.pomdemo@5dfcfece]" name="f" duration-ms="14658" started-at="2019-12-09T09:56:49Z" finished-at="2019-12-09T09:57:04Z">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
-at pom.pomdemo.f(pomdemo.java:32)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at pom.pomdemo.f(pomdemo.java:31)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)

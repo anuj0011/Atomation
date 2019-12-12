@@ -62,8 +62,6 @@ public class AppRunner {
 		TouchActions touch = new TouchActions(driver);
 		touch.scroll(10, 100);
 		action.perform();
-
-
 		
 		driver.findElement(By.id("com.ubuy:id/check.out")).click();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -78,12 +76,6 @@ public class AppRunner {
 		driver.findElement(By.id("com.ubuy:id/sing.in")).click();
 
 		
-
-
-
-
-
-
 	}
 
 }

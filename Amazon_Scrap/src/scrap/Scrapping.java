@@ -53,43 +53,45 @@ public class Scrapping extends Sikuli {
 
 		JSONObject o1 = new JSONObject();
 
-		
-		 System.setProperty("webdriver.gecko.driver",
-		 "D:\\Lib\\geckodriver-v0.26.0-win64\\geckodriver.exe"); 
-		 WebDriver driver = new FirefoxDriver();
-		 
+		/*
+		 * System.setProperty("webdriver.gecko.driver",
+		 * "D:\\Lib\\geckodriver-v0.26.0-win64\\geckodriver.exe"); WebDriver driver =
+		 * new FirefoxDriver();
+		 */
 
 		System.setProperty("webdriver.chrome.driver",
 				"D:\\Lib\\chrome_driver_latest\\chromedriver_win32\\chromedriver.exe");
-		//WebDriver driver = new ChromeDriver();
+		WebDriver driver = new ChromeDriver();
 
 		driver.manage().window().maximize();
 
-		browserproxy();
+		// browserproxy();
 
 		driver.get("https://www.amazon.com");
-		driver.findElement(By.xpath("//span[@id='glow-ingress-line2']")).click();
-		driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
-		String Parent_Window1 = driver.getWindowHandle();
 
-		for (String Child_Window : driver.getWindowHandles()) {
-			driver.switchTo().window(Child_Window);
-
-			// action on child window
-
-			driver.findElement(By.xpath("//input[@id='GLUXZipUpdateInput']")).sendKeys("41048");
-			WebDriverWait wait = new WebDriverWait(driver, 10);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(
-					By.xpath("//span[@id='GLUXZipUpdate']//input[@class='a-button-input']"))).click();
-			// driver.findElement(By.xpath("//span[@id='GLUXZipUpdate']//input[@class='a-button-input']")).click();
-			driver.findElement(By.xpath("//button[@name='glowDoneButton']")).click();
-		}
-		// Switching back to Parent Window
-		driver.switchTo().window(Parent_Window1);
+		/*
+		 * driver.findElement(By.xpath("//span[@id='glow-ingress-line2']")).click();
+		 * driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS); String
+		 * Parent_Window1 = driver.getWindowHandle();
+		 * 
+		 * for (String Child_Window : driver.getWindowHandles()) {
+		 * driver.switchTo().window(Child_Window);
+		 * 
+		 * // action on child window
+		 * 
+		 * driver.findElement(By.xpath("//input[@id='GLUXZipUpdateInput']")).sendKeys(
+		 * "41048"); WebDriverWait wait = new WebDriverWait(driver, 10);
+		 * wait.until(ExpectedConditions.visibilityOfElementLocated(
+		 * By.xpath("//span[@id='GLUXZipUpdate']//input[@class='a-button-input']"))).
+		 * click(); // driver.findElement(By.xpath(
+		 * "//span[@id='GLUXZipUpdate']//input[@class='a-button-input']")).click();
+		 * driver.findElement(By.xpath("//button[@name='glowDoneButton']")).click(); }
+		 * // Switching back to Parent Window driver.switchTo().window(Parent_Window1);
+		 */
 
 		try {
 
-			FileInputStream file = new FileInputStream(new File("D:\\ExcelReadAutomated\\tao_category_weight.xlsx"));
+			FileInputStream file = new FileInputStream(new File("D:\\ExcelReadAutomated\\amazonscrap.xlsx"));
 			XSSFWorkbook workbook = new XSSFWorkbook(file);
 
 			XSSFSheet sheet = workbook.getSheetAt(0);
@@ -97,7 +99,7 @@ public class Scrapping extends Sikuli {
 			for (int i = 0; i <= sheet.getLastRowNum(); i++) {
 				Thread.sleep(2000);
 				WebElement searchBox = driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']"));
-				String keyword = sheet.getRow(i).getCell(1).getStringCellValue();
+				String keyword = sheet.getRow(i).getCell(0).getStringCellValue();
 
 				searchBox.clear();
 				searchBox.sendKeys(keyword);
@@ -107,85 +109,138 @@ public class Scrapping extends Sikuli {
 
 					JavascriptExecutor js = (JavascriptExecutor) driver;
 					js.executeScript("scroll(0,150)");
-					driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+					driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 					driver.findElement(By.xpath(
 							"//div[@class='sg-col-20-of-24 sg-col-28-of-32 sg-col-16-of-20 sg-col s-right-column sg-col-32-of-36 sg-col-8-of-12 sg-col-12-of-16 sg-col-24-of-28']//div[2]//div[1]//div[1]//div[1]//div[1]//div[1]//div[2]//div[1]//div[1]//div[1]//span[1]//a[1]//div[1]"))
 							.click();
-
+						
+					// ***PRIME NON-PRIME***
 					try {
+						String text = driver.findElement(By.xpath("//div[@id='merchant-info']")).getText();
+						if (text.contains("Amazon")) {
+							o1.put("primenonprime", "PRIME");
 
-						// ***PRIME NON-PRIME***
-
-						try {
-							String text = driver.findElement(By.xpath("//div[@id='merchant-info']")).getText();
-							if (text.contains("Amazon")) {
-								o1.put("primenonprime", "PRIME");
-
-							} else {
-
-								o1.put("primenonprime", "NON-PRIME");
-
-							}
-							;
-						} catch (NoSuchElementException e) {
+						} else {
 
 							o1.put("primenonprime", "NON-PRIME");
 
 						}
 
-						// ***TITLE***
+					} catch (NoSuchElementException e) {
+
+					}
+
+					// ***TITLE***
+					try {
 
 						String title = driver.findElement(By.xpath("//span[@id='productTitle']")).getText();
 
 						o1.put("TITLE", title);
 
-						// ***PRICE***
+					} catch (Exception e) {
 
-						try {
+					}
 
-							String price = driver.findElement(By.xpath("//span[@id='priceblock_ourprice']")).getText();
+					
+					// ***IN STOCK OR OUT OF STOCK***
+					WebElement outin = null;
+					try {
+						 outin = driver.findElement(By.xpath("//span[contains(text(),'Currently unavailable.')]"));	 
+						 
+					} catch (NoSuchElementException e) {
 
-							o1.put("PRICE", price);
 
-						} catch (NoSuchElementException e) {
-							driver.findElement(By.xpath("//a[@id='buybox-see-all-buying-choices-announce']")).click();
-							driver.findElement(By.xpath("//input[@name='olpCheckbox_new']")).click();
-							String Offerlisting = driver.findElement(By.xpath(
-									"/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]"))
-									.getText();
-
-							o1.put("PRICE", Offerlisting);
-
+					}
+					
+						if (outin != null) {
+							
+							o1.put("STOCK", "Out of Stock");
 						}
+						
+						else {
+							o1.put("STOCK", "In Stock");
 
-						// ***SHIPPING***
+					}
 
-						try {
-							String shipping = driver.findElement(By.xpath(
-									"//span[@id='ourprice_shippingmessage']//span[@class='a-size-base a-color-secondary']"))
-									.getText();
-							// TO BREAK THE ELEMENT TEXT
-							String[] words = shipping.split(Pattern.quote("+"));
-							String part1 = words[0];
-							String part2 = words[1];
-							String[] word = part2.split("shipping");
-							String part3 = word[0];
+						
+					// ***PRICE***
+					WebElement pri = null;	
+					try {
+						
+						pri = driver.findElement(By.xpath("//span[@id='priceblock_ourprice' or @id='priceblock_saleprice']"));
+						
+					} catch (NoSuchElementException e) {
 
-							o1.put("SHIPPING", part3);
+					}
+					if (pri != null) {
+						String price = driver
+								.findElement(
+										By.xpath("//span[@id='priceblock_ourprice' or @id='priceblock_saleprice']"))
+								.getText();
 
-						} catch (NoSuchElementException e) {
+						o1.put("PRICE", price);
+					} else {
+						driver.findElement(By.xpath("//a[@id='buybox-see-all-buying-choices-announce']")).click();
+						driver.findElement(By.xpath("//input[@name='olpCheckbox_new']")).click();
+						String Offerlisting = driver.findElement(By.xpath(
+								"/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]"))
+								.getText();
 
-						}
+						o1.put("PRICE", Offerlisting);
+					}
 
-						// ***DIMENSION & WEIGHT***
+					
+					// ***SHIPPING***
+					try {
+						String shipping = driver.findElement(By.xpath(
+								"//span[@id='ourprice_shippingmessage']//span[@class='a-size-base a-color-secondary']"))
+								.getText();
+						// TO BREAK THE ELEMENT TEXT
+						String[] words = shipping.split(Pattern.quote("+"));
+						String part1 = words[0];
+						String part2 = words[1];
+						String[] word = part2.split("shipping");
+						String part3 = word[0];
 
-						String dimension = driver.findElement(By.xpath("//td[contains(text(),'inches')]")).getText();
+						o1.put("SHIPPING", part3);
+
+					} catch (NoSuchElementException e) {
+
+					}
+
+					
+					// ***CATEGORY NAME***
+					try {
+
+						String category = driver
+								.findElement(By.xpath("//div[@id='wayfinding-breadcrumbs_container']//li[1]//span[1]"))
+								.getText();
+						o1.put("CATEGORY", category);
+
+					} catch (NoSuchElementException e) {
+
+					}
+
+					
+					// ***DIMENSION & WEIGHT***
+					WebElement dim = null;
+					try {
+						dim = driver.findElement(By.xpath("//td[contains(text(),'inches')]"));
+						
+						
+					} catch (NoSuchElementException e) {
+
+					}
+					
+					if (dim != null) {
+						String dimension = driver.findElement(By.xpath("//td[contains(text(),'inches')]"))
+								.getText();
 
 						o1.put("DIMENSION", dimension);
 
 						String weight = driver
-								.findElement(
-										By.xpath("//td[contains(text(),' pounds ') or contains(text(),' ounces ')]"))
+								.findElement(By
+										.xpath("//td[contains(text(),' pounds ') or contains(text(),' ounces ')]"))
 								.getText();
 
 						// TO BREAK THE ELEMENT TEXT
@@ -194,20 +249,21 @@ public class Scrapping extends Sikuli {
 						String part5 = wordss[1];
 
 						o1.put("WEIGHT", part4);
-
-					} catch (NoSuchElementException e) {
+					} else {
 						/*
 						 * String dimentionli =
 						 * driver.findElement(By.xpath("//li[contains(text(),'inches')]")).getText();
 						 * System.out.print(dimentionli);
 						 */
 						String weightli = driver
-								.findElement(By.xpath("//li[contains(text(),'pounds') or contains(text(),'ounces')]"))
+								.findElement(
+										By.xpath("//li[contains(text(),'pounds') or contains(text(),'ounces')]"))
 								.getText();
 
 						o1.put("WEIGHT", weightli);
-
 					}
+
+
 					// TO GET ALL THE ELEMENTS UNDER SAME XPATH(ALL THE FILTER OPTIONS)
 
 					/*
@@ -219,6 +275,7 @@ public class Scrapping extends Sikuli {
 					 */
 
 					System.out.println(o1);
+					o1.clear();
 
 				} catch (NoSuchElementException e) {
 

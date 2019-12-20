@@ -20,7 +20,6 @@
 	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Application_Test/jars/java-client-6.0.0-BETA4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Application_Test/jars/junit-4.12.jar"/>
 	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Application_Test/jars/okhttp-3.10.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Application_Test/jars/okio-1.11.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Application_Test/jars/org.apache.commons.io.jar"/>
 	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Application_Test/jars/poi-4.0.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Application_Test/jars/poi-examples-4.0.1.jar"/>
@@ -33,5 +32,6 @@
 	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Application_Test/jars/testng-6.7.jar"/>
 	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Application_Test/jars/testng-6.9.9.jar"/>
 	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Application_Test/jars/xmlbeans-3.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Application_Test/jars/okio-1.11.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

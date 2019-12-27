@@ -70,24 +70,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Test_App {
 	// ***APPIUM INTEGRATION WITH SAUCE LABS***
 	public static final String USERNAME = "anuj0011";
-	public static final String ACCESS_KEY = "DA93CC0DB71240E1A0D182D424ED16C5";
-	public static final String URL = "https://us1-manual.app.testobject.com" + USERNAME + ":" + ACCESS_KEY + "@ondemand.us-west-1.saucelabs.com:4723/wd/hub";
-
+	public static final String ACCESS_KEY = "330bc23c-651c-41a0-910d-ba32c9e2858e";
+	public static final String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:4723/wd/hub";
+	
 	public static void main(String[] args) throws InterruptedException, AWTException, IOException {
-
-		File classpathRoot = new File(System.getProperty("user.dir"));
-		File appDir = new File(classpathRoot, "D:\\Appium\\UBuy-release_26_2_2019_1.apk");
-		File app = new File(appDir, "D:\\Appium\\UBuy-release_26_2_2019_1.apk");
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		//DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		capabilities.setCapability("username", "anuj0011");
-		capabilities.setCapability("testobject_api_key", "DA93CC0DB71240E1A0D182D424ED16C5");
+		capabilities.setCapability("testobject_api_key", "e135634a-f6ed-4394-a833-dffc2d0c0249");
 		capabilities.setCapability("appiumVersion", "1.15.1");
 		capabilities.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
-		capabilities.setCapability("deviceName", "Google Nexus 7 HD Emulator");
+		capabilities.setCapability("deviceName", "Motorola Moto G6");
 		capabilities.setCapability("deviceOrientation", "portrait");
-		capabilities.setCapability("platformVersion", "9.1");
+		capabilities.setCapability("platformVersion", "8.0");
 		capabilities.setCapability("platformName", "Android");
 		capabilities.setCapability("appPackage", "com.ubuy");
 		capabilities.setCapability("appActivity", "com.app.mazade.ubuy.MainActivity");

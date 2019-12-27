@@ -11,8 +11,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -22,9 +25,9 @@ public class AppRunner {
 	public static void main(String[] args) throws Exception {
 
 		DesiredCapabilities caps = new DesiredCapabilities();
-		caps.setCapability("deviceName", "554c50d2");
+		caps.setCapability("deviceName", "ddc376c1");
 		caps.setCapability("platformName", "Android");
-		caps.setCapability("platformVersion", "7.1.1");
+		caps.setCapability("platformVersion", "9");
 		caps.setCapability("appPackage", "com.ubuy");
 		caps.setCapability("appActivity", "com.app.mazade.ubuy.MainActivity");
 		// caps.setCapability("appActivity",".ui.activities.Main");
@@ -46,25 +49,35 @@ public class AppRunner {
 		driver.findElement(By.xpath("//android.widget.TextView[@text='Submit']")).click();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);*/
+		
+		driver.findElement(By.xpath("//android.widget.TextView[@text='US']")).click();
+
+		
 		driver.findElement(By.xpath("//android.widget.TextView[@text='What are you looking for?']")).click();
 		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	    Actions action = new Actions(driver);
-	    action.sendKeys("lenovo").perform();
+	    action.sendKeys("iphone").perform();
 	    action.sendKeys(Keys.ENTER).perform();
+	    
 
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.findElement(By.xpath("//android.widget.RelativeLayout[@index='2']")).click();
-		Thread.sleep(10000);
-		driver.findElement(By.id("com.ubuy:id/add.to.cart")).click();
+		
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		WebElement add = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.ubuy:id/add.to.cart")));
+		Thread.sleep(3000);
+		add.click();
+		
 		driver.findElement(By.xpath("//android.widget.RelativeLayout[@index='1']")).click();
 		Thread.sleep(7000);		
-		TouchActions touch = new TouchActions(driver);
+		/*TouchActions touch = new TouchActions(driver);
 		touch.scroll(10, 100);
-		action.perform();
+		action.perform();*/
 		
 		driver.findElement(By.id("com.ubuy:id/check.out")).click();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		
 		driver.findElement(By.xpath("//android.view.View[@text='Login']")).click();
 		
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -74,8 +87,40 @@ public class AppRunner {
 		action.sendKeys("00ubuy11").perform();
 		
 		driver.findElement(By.id("com.ubuy:id/sing.in")).click();
+		
+		driver.findElement(By.id("com.ubuy:id/no")).click();
 
 		
+		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		driver.findElement(By.id("com.ubuy:id/check.out")).click();
+		
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+
+		driver.findElement(By.xpath("//android.view.View[@index='0']")).click();
+		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+
+		driver.findElement(By.xpath("//android.widget.Button[@text='Continue']")).click();
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+
+		//FINDING ELEMENT BY CONTAIN TEXT
+		driver.findElement(By.xpath("//android.view.View[contains(@text, 'Ubuy Shipping')]")).click();
+		
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//android.widget.Button[@text='Continue']")).click();
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		
+		driver.findElement(By.xpath("//android.view.View[@text='Visa/Mastercard']")).click();
+		
+		driver.findElement(By.id("cybersecure_cc_number")).click();
+		action.sendKeys("4377486577038084").perform();
+		driver.findElement(By.id("cybersecure_cc_cid")).click();
+		action.sendKeys("562").perform();
+		
+		driver.findElement(By.xpath("//android.widget.Button[@text='Continue']")).click();
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		
+
+
 	}
 
 }

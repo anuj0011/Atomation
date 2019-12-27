@@ -1,4 +1,4 @@
-//  TO GET TITLE,WEIGHT,DIMENTION ETC. FROM AMAZON AND SEND THEM IN JSON FORMATE.
+//  TO GET "TITLE,PRICE,SHIPPING PRICE,WEIGHT,DIMENTION,CATEGORY,PRIME/NON-PRIME ,INSTOCK/OUTOFSTOCK" FROM AMAZON AND SEND THEM IN JSON FORMATE.
 
 package scrap;
 
@@ -34,7 +34,6 @@ public class Scrapping extends Sikuli {
 	public static void main(String[] args) throws IOException, InterruptedException, FindFailed, AWTException {
 
 		// *** OPENING TOR BROWSER ***
-
 		/*
 		 * System.setProperty("webdriver.gecko.driver", "D:\\Lib\\geckodriver.exe");
 		 * String torPath = "C:\\Users\\HP\\Desktop\\Tor Browser\\Browser\\firefox.exe";
@@ -98,7 +97,7 @@ public class Scrapping extends Sikuli {
 			XSSFSheet sheet = workbook.getSheetAt(0);
 
 			for (int i = 0; i <= sheet.getLastRowNum(); i++) {
-				Thread.sleep(2000);
+				
 				WebElement searchBox = driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']"));
 				String keyword = sheet.getRow(i).getCell(0).getStringCellValue();
 				
@@ -111,7 +110,7 @@ public class Scrapping extends Sikuli {
 
 					JavascriptExecutor js = (JavascriptExecutor) driver;
 					js.executeScript("scroll(0,150)");
-					driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+					//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 					//driver.findElement(By.xpath("//div[@class='sg-col-20-of-24 sg-col-28-of-32 sg-col-16-of-20 sg-col s-right-column sg-col-32-of-36 sg-col-8-of-12 sg-col-12-of-16 sg-col-24-of-28']//div[2]//div[1]//div[1]//div[1]//div[1]//div[1]//div[2]//div[1]//div[1]//div[1]//span[1]//a[1]//div[1]")).click();
 
 					// ***PRIME NON-PRIME***
@@ -182,7 +181,7 @@ public class Scrapping extends Sikuli {
 
 					}
 
-					// ***SHIPPING***
+					// ***SHIPPING PRICE***
 					try {
 						String shipping = driver.findElement(By.xpath(
 								"//span[@id='ourprice_shippingmessage']//span[@class='a-size-base a-color-secondary']"))
@@ -242,8 +241,17 @@ public class Scrapping extends Sikuli {
 									.findElement(
 											By.xpath("//li[contains(text(),'pounds') or contains(text(),'ounces')]"))
 									.getText();
+							
+							// TO BREAK THE ELEMENT TEXT
+							String[] wordli = weightli.split(Pattern.quote(" ("));
+							String part7 = wordli[0];
+							String part8 = wordli[1];
+							
+							String[] morewordli = part7.split(Pattern.quote(": "));
+							String part9 = morewordli[0];
+							String part10 = morewordli[1];
 
-							o1.put("WEIGHT", weightli);
+							o1.put("WEIGHT", part10);
 						}
 						else if(driver.findElements(By.xpath("//div[@id='detailBullets_feature_div']//span[@class='a-list-item']//*[contains(text(),'inches')]")).size() > 0) {
 							String dimspan = driver

@@ -22,6 +22,7 @@ import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 
 import java.time.Duration;
@@ -63,7 +64,6 @@ public class AppRunner {
 		
 		driver.findElement(By.xpath("//android.widget.TextView[@text='US']")).click();
 		
-		//swipeVertical((AppiumDriver)driver,0.05,0.9,0.5,3000);
 
 		Thread.sleep(15000);
 
@@ -130,8 +130,12 @@ public class AppRunner {
 		action.sendKeys("4377486577038084").perform();
 		Thread.sleep(2000);
 		
-		swipeVertical((AppiumDriver)driver,0.05,0.9,0.5,3000);
-		    
+		// Calling Swipe Method
+		swipe((AppiumDriver)driver,605,828,605,118,1000);
+
+		
+        driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+        
 		driver.findElement(By.id("cybersecure_cc_cid")).click();
 		action.sendKeys("562").perform();
 		
@@ -142,13 +146,15 @@ public class AppRunner {
 	
 	// *** FOR SCROLLING/SWIPE ***
 	
-	public static void swipeVertical(AppiumDriver driver, double startPercentage, double finalPercentage, double anchorPercentage, int duration) throws Exception {
-        Dimension size = driver.manage().window().getSize();
-        int anchor = (int) (size.width * anchorPercentage);
-        int startPoint = (int) (size.height * startPercentage);
-        int endPoint = (int) (size.height * finalPercentage);
-        new TouchAction(driver).press(PointOption.point(anchor,startPoint)).waitAction(waitOptions(Duration.ofMillis(duration))).moveTo(PointOption.point(anchor, endPoint)).release().perform();
+	
+	public static void swipe(AppiumDriver driver, int startx, int starty, int endx, int endy, int duration) throws Exception {
+		WaitOptions waitOptions = new WaitOptions();
+        waitOptions.withDuration(Duration.ofMillis(duration));
+        new TouchAction(driver).longPress(PointOption.point(startx, starty)).waitAction(waitOptions).moveTo(PointOption.point(endx,endy)).release().perform();
+		 
+        
         
 	}
+	
 
 }

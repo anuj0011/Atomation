@@ -30,14 +30,12 @@ import static io.appium.java_client.touch.offset.PointOption.point;
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
 
 
-
-
 public class AppRunner {
 
 	public static void main(String[] args) throws Exception {
 
 		DesiredCapabilities caps = new DesiredCapabilities();
-		caps.setCapability("deviceName", "ddc376c1");
+		caps.setCapability("deviceName", "PL2GAMG831409634");
 		caps.setCapability("platformName", "Android");
 		caps.setCapability("platformVersion", "9");
 		caps.setCapability("appPackage", "com.ubuy");
@@ -98,10 +96,13 @@ public class AppRunner {
 		driver.findElement(By.id("com.ubuy:id/et_email")).click();
 		action.sendKeys("anuj.bansal@ubuy.co.in").perform();
 		driver.findElement(By.id("com.ubuy:id/et_password")).click();
-		action.sendKeys("00ubuy11").perform();
+		
+		action.sendKeys("00000ubuy11").perform();
 		
 		driver.findElement(By.id("com.ubuy:id/sing.in")).click();
 		
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+
 		driver.findElement(By.id("com.ubuy:id/no")).click();
 
 		
@@ -125,6 +126,8 @@ public class AppRunner {
 		
 		driver.findElement(By.xpath("//android.view.View[@text='Visa/Mastercard']")).click();
 		
+		driver.findElement(By.xpath("//android.widget.Spinner[@text='--Please Select--']")).click();
+		driver.findElement(By.xpath("//android.widget.CheckedTextView[@index='1']")).click();
 		
 		driver.findElement(By.xpath("//android.widget.EditText[@index='0']")).click();
 		action.sendKeys("4377486577038084").perform();
@@ -133,10 +136,15 @@ public class AppRunner {
 		// Calling Swipe Method
 		swipe((AppiumDriver)driver,605,828,605,118,1000);
 
-		
         driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
         
-		driver.findElement(By.id("cybersecure_cc_cid")).click();
+        driver.findElement(By.xpath("//android.widget.Spinner[@text='Month']")).click();
+		driver.findElement(By.xpath("//android.widget.CheckedTextView[@index='2']")).click();
+
+        driver.findElement(By.xpath("//android.widget.Spinner[@text='Year']")).click();
+		driver.findElement(By.xpath("//android.widget.CheckedTextView[@text='2022']")).click();
+        
+		driver.findElement(By.xpath("//android.view.View[@text='*Card Verification Number']")).click();
 		action.sendKeys("562").perform();
 		
 		driver.findElement(By.xpath("//android.widget.Button[@text='Continue']")).click();

@@ -160,8 +160,7 @@ public class AppRunner {
         waitOptions.withDuration(Duration.ofMillis(duration));
         new TouchAction(driver).longPress(PointOption.point(startx, starty)).waitAction(waitOptions).moveTo(PointOption.point(endx,endy)).release().perform();
 		 
-        
-        
+          
 	}
 	
 

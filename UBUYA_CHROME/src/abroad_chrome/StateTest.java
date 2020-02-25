@@ -42,7 +42,7 @@ public class StateTest {
 			String url = sheet.getRow(i).getCell(0).getStringCellValue();
 
 			try {
-				for (int x = 1; x <= 100; x++) {
+				for (int x = 1; x <= 500; x++) {
 					driver.get(url);
 
 					if (driver.findElements(By.xpath("//div[@class='newsletter-pop-up-v2 ub-newsletter-block in']"))
@@ -59,13 +59,13 @@ public class StateTest {
 							"//div[@class='body-content clearfix']//div[@class='row']//div[1]//div[1]//div[1]//a[1]"))
 							.click();
 
-					Thread.sleep(15000);
+					Thread.sleep(6000);
 					driver.findElement(By.xpath("//button[@id='add-to-cart-btn']")).click();
 
 					String Parent_Window = driver.getWindowHandle();
 
 					for (String Child_Window : driver.getWindowHandles()) {
-						Thread.sleep(15000);
+						Thread.sleep(6000);
 						driver.findElement(By.xpath("//*[@class='view-cart-and-checkout']")).click();
 
 					}
@@ -92,17 +92,13 @@ public class StateTest {
 					driver.findElement(By.xpath("//input[@id='billing:city']")).sendKeys("Oshawa");
 					driver.findElement(By.xpath("//input[@id='billing:address_house_no']")).sendKeys("3836");
 					driver.findElement(By.xpath("//input[@id='billing:address_street']")).sendKeys("Toy Avenue");
-					driver.findElement(By.xpath("//input[@id='billing:postcode']")).sendKeys("123456");
+					driver.findElement(By.xpath("//input[@id='billing:postcode']")).sendKeys("12345678");
 
 					driver.findElement(By.xpath("//button[@id='billing_save_button']")).click();
 
-					driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-					driver.findElement(
-							By.xpath("//label[contains(text(),'Ubuy Shipping - 5-9 Business days (Customs delay m')]"))
-							.click();
-
-					driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+					Thread.sleep(5000);					
+					driver.findElement(By.xpath("//label[contains(text(),'Ubuy Shipping - 5-9 Business days')]")).click();
+					Thread.sleep(2000);
 
 					driver.findElement(By.xpath(
 							"//div[@id='shipping-method-buttons-container']//button[@class='next_btn'][contains(text(),'Continue')]"))
@@ -111,6 +107,7 @@ public class StateTest {
 					driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 					if (driver.findElement(By.xpath("//span[contains(text(),'Visa/Mastercard')]")).isDisplayed()) {
+						
 						driver.findElement(By.xpath("//span[contains(text(),'Visa/Mastercard')]")).click();
 
 						Select Select1 = new Select(driver.findElement(By.id("cybersecure_cc_type")));

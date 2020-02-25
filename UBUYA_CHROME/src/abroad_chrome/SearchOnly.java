@@ -59,7 +59,7 @@ public class SearchOnly {
 		FileInputStream file = new FileInputStream(new File("D:\\ExcelReadAutomated\\Normalsearchcheck.xlsx"));
 		XSSFWorkbook workbook = new XSSFWorkbook(file);
 		XSSFSheet sheet = workbook.getSheetAt(0);
-		driver.get("https://www.ubuy.co.in");
+		driver.get("https://test-abroad.ubuy.com.kw/en/");
 		for (int i = 0; i <= sheet.getLastRowNum(); i++) {
 			try {
 				
@@ -72,7 +72,7 @@ public class SearchOnly {
 			searchbox.sendKeys(keyword);
 			searchbox.submit();
 				
-			Thread.sleep(20000);
+			Thread.sleep(5000);
 				
 			} catch (Exception e) {
 				e.printStackTrace();

@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Countywise_Restricted/jars/commons-collections4-4.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Countywise_Restricted/jars/commons-compress-1.18.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Countywise_Restricted/jars/dom4j-1.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Countywise_Restricted/jars/poi-4.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Countywise_Restricted/jars/poi-examples-4.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Countywise_Restricted/jars/poi-excelant-4.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Countywise_Restricted/jars/poi-ooxml-4.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Countywise_Restricted/jars/poi-ooxml-schemas-4.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Countywise_Restricted/jars/poi-scratchpad-4.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Countywise_Restricted/jars/selenium-server-standalone-3.141.59.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/Countywise_Restricted/jars/xmlbeans-3.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/Countywise_Restricted/jars/commons-collections4-4.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/Countywise_Restricted/jars/commons-compress-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/Countywise_Restricted/jars/dom4j-1.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/Countywise_Restricted/jars/poi-4.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/Countywise_Restricted/jars/poi-examples-4.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/Countywise_Restricted/jars/poi-excelant-4.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/Countywise_Restricted/jars/poi-ooxml-4.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/Countywise_Restricted/jars/poi-ooxml-schemas-4.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/Countywise_Restricted/jars/poi-scratchpad-4.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/Countywise_Restricted/jars/selenium-server-standalone-3.141.59.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/Countywise_Restricted/jars/xmlbeans-3.0.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

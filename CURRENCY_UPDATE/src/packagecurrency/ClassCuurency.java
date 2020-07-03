@@ -4,7 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Keyboard;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class ClassCuurency {
@@ -12,8 +14,10 @@ public class ClassCuurency {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		System.setProperty("webdriver.chrome.driver", "D:\\Lib\\chrome_driver_latest\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "E:\\AUTOMATION\\chromedriver_win32\\chromedriver4.exe");
+		
 		WebDriver driver =  new ChromeDriver();
+
 		driver.get("https://www.google.com");
 		
 		driver.manage().window().maximize();
@@ -37,7 +41,7 @@ public class ClassCuurency {
 		action.sendKeys(Keys.ESCAPE); */
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@aria-label='Search']")).sendKeys("1 usd to aed");
-		driver.findElement(By.xpath(".//*[@id='tsf']/div[2]/div/div[3]/center/input[1]")).click(); 
+		driver.findElement(By.xpath("//div[@class='FPdoLc tfB0Bf']//input[@name='btnK']")).click(); 
 		String TextBox = driver.findElement(By.xpath("//span[@class='DFlfde SwHCTb']")).getText();   // .sendKeys(Keys.chord(Keys.CONTROL, "c"));
 		System.out.println("AED "+TextBox);
 		

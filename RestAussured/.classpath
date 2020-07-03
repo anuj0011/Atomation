@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/activation-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/commons-codec-1.9.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/commons-lang3-3.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/groovy-2.5.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/groovy-json-2.5.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/groovy-xml-2.5.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/hamcrest-2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/hamcrest-core-2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/hamcrest-library-2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/httpclient-4.5.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/httpcore-4.4.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/httpmime-4.5.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/jaxb-api-2.2.12.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/jaxb-osgi-2.2.10.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/org.apache.sling.javax.activation-0.1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/rest-assured-4.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/selenium-server-standalone-2.53.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/selenium-server-standalone-3.141.59.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HP/git/Atomation/RestAussured/jars/tagsoup-1.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/activation-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/commons-lang3-3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/groovy-2.5.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/groovy-json-2.5.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/groovy-xml-2.5.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/hamcrest-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/hamcrest-core-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/hamcrest-library-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/httpclient-4.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/httpcore-4.4.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/httpmime-4.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/jaxb-api-2.2.12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/jaxb-osgi-2.2.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/org.apache.sling.javax.activation-0.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/rest-assured-4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/selenium-server-standalone-2.53.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/selenium-server-standalone-3.141.59.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ansh0011/git/Atomation/RestAussured/jars/tagsoup-1.2.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

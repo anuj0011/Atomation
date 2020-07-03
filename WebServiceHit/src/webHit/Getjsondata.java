@@ -10,9 +10,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
 import javax.mail.Message;
 import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
@@ -45,7 +42,7 @@ public class Getjsondata {
 
 	public static void pricesave() throws IOException, InterruptedException {
 		System.setProperty("webdriver.chrome.driver",
-				"D:\\Lib\\chrome_driver_latest\\chromedriver_win32\\chromedriver.exe");
+				"E:\\AUTOMATION\\chromedriver_win32\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		((JavascriptExecutor) driver).executeScript("window.open()");

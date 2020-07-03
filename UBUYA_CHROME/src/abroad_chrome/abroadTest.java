@@ -10,9 +10,10 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+import java.sql.Connection;
+
 
 import javax.activation.DataHandler;
-import javax.activation.DataSource;
 import javax.activation.FileDataSource;
 import javax.mail.Message;
 import javax.mail.Multipart;
@@ -312,7 +313,7 @@ public class abroadTest {
 				String file = "D:\\eclipse-workspace\\UBUYA_CHROME\\Screenshots\\screeenshot.PNG";
 				String fileName = "screeenshot.PNG";
 
-				DataSource source = new FileDataSource(file);
+				FileDataSource source = new FileDataSource(file);
 				messagebodypart.setDataHandler(new DataHandler(source));
 				messagebodypart.setFileName(fileName);
 				messagebodypart.attachFile(file);

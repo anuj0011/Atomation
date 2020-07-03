@@ -27,7 +27,7 @@ public class Abroad_Script {
 	public static void main(String[] args) throws IOException, InterruptedException, FindFailed, AWTException 
 	{
 		
-		System.setProperty("webdriver.chrome.driver","D:\\Lib\\chrome_driver_latest\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","E:\\AUTOMATION\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		

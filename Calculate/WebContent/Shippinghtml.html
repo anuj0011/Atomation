@@ -5,8 +5,26 @@
 </head>
 <body>
 <form action="Shipping">
-<label>Weight(pounds) </label> <input type="number" name="num1"/> <br/><br/>
+<label>Weight(pounds) </label> <input type="number" name="num1"/> <br><br>
+<label>No. of Items in Cart </label> <input type="number" name="num3"/>
+
+<label for="nonprime">Any Non-Prime item?</label>
+<select id="nonprime" name="nonprime">
+    <option value="yes">yes</option>
+    <option value="no">No</option></select><br/><br/>
+
 <label>Country Name </label> <input type="text" name="num2"/> <br/><br/>
+
+
+  <label for="stores">Choose Store:</label>
+<select id="stores" name="stores">
+    <option value="us">US</option>
+    <option value="uk">UK</option>
+    <option value="hk">HK</option>
+    
+  </select><br/><br/>
+
+
 <button type="submit" name="Calculator">FIND</button><br/>
 </form>
 </body>

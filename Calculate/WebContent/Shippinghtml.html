@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Practical Work</title>
+<title>UBUY SHIPPING CALCULATOR</title>
 </head>
 <body>
-<form action="Shipping">
-<label>Weight(pounds) </label> <input type="number" name="num1"/> <br><br>
-<label>No. of Items in Cart </label> <input type="number" name="num3"/>
+	<form action="Shipping">
+		<label>Weight(pounds) </label> <input type="number" name="num1" /> <br>
+		<br> <label>No. of Items in Cart </label> <input type="number"
+			name="num3" /> <label for="nonprime">Any Non-Prime item?</label> <select
+			id="nonprime" name="nonprime">
+			<option value="yes">yes</option>
+			<option value="no">No</option>
+		</select><br />
+		<br /> <label for="num2">Country</label> <select id="num2" name="num2">
+			<option value="kuwait">Kuwait</option>
+			<option value="uae">Uae</option>
+			<option value="saudi">Saudi</option>
+			<option value="oman">Oman</option>
+			<option value="bahrain">Bahrain</option>
+			<option value="qatar">Qatar</option>
+			<option value="other">OTHER</option>
+		</select><br />
+		<br /> <label for="stores">Choose Store:</label> <select id="stores"
+			name="stores">
+			<option value="us">US</option>
+			<option value="uk">UK</option>
+			<option value="hk">HK</option>
 
-<label for="nonprime">Any Non-Prime item?</label>
-<select id="nonprime" name="nonprime">
-    <option value="yes">yes</option>
-    <option value="no">No</option></select><br/><br/>
-
-<label>Country Name </label> <input type="text" name="num2"/> <br/><br/>
+		</select><br />
+		<br />
 
 
-  <label for="stores">Choose Store:</label>
-<select id="stores" name="stores">
-    <option value="us">US</option>
-    <option value="uk">UK</option>
-    <option value="hk">HK</option>
-    
-  </select><br/><br/>
-
-
-<button type="submit" name="Calculator">FIND</button><br/>
-</form>
+		<button type="submit" name="Calculator">FIND</button>
+		<button type="reset" name="reset">CLEAR</button>
+		<br />
+		<br />
+	</form>
 </body>
 </html>

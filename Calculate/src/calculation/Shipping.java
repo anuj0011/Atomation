@@ -99,7 +99,15 @@ public class Shipping extends HttpServlet {
 				z = sum + 1;
 			}
 
-		} else if (num3 == 3) {
+		} 
+		else if (num3 == 1) {
+			if (nonprime.equals("yes")) {
+				z = sum;
+			} else {
+				z = sum;
+			}
+		}
+		else if (num3 == 3) {
 			if (nonprime.equals("yes")) {
 				z = sum + 3;
 			} else {

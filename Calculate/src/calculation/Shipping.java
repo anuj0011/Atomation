@@ -16,61 +16,131 @@ public class Shipping extends HttpServlet {
 		double num1 = Integer.parseInt(request.getParameter("num1"));
 		String num2 = request.getParameter("num2");
 		String stores = request.getParameter("stores");
+		String shippingtype = request.getParameter("shippingtype");
 
 		if (num2.equals("kuwait")) {
-			if (stores.equals("us")) {
 
-				y = (num1 - 1) * 2.5 + 9;
-				Margine(request, response);
-			} else if (stores.equals("uk")) {
+			if (shippingtype.equals("5-9 days")) {
+				if (stores.equals("us")) {
 
-				y = (num1 - 1) * 2.5 + 9 + 5;
-				Margine(request, response);
-			} else if (stores.equals("hk")) {
+					y = (num1 - 1) * 2.5 + 9;
+					Margine(request, response);
+				} else if (stores.equals("uk")) {
 
-				china = (num1 - 1) * 2.5 + 9;
-				y = (china * .15) + china;
-				Margine(request, response);
+					y = (num1 - 1) * 2.5 + 9 + 5;
+					Margine(request, response);
+				} else if (stores.equals("hk")) {
+
+					china = (num1 - 1) * 2.5 + 9;
+					y = (china * .15) + china;
+					Margine(request, response);
+				}
+			} else {
+				if (stores.equals("us")) {
+
+					y = (num1 - 1) * 2.5 + 9;
+					Margine(request, response);
+					z = (z * .05) + z + 3;
+				} else if (stores.equals("uk")) {
+
+					y = (num1 - 1) * 2.5 + 9 + 5;
+					Margine(request, response);
+					z = (z * .05) + z + 3;
+
+				} else if (stores.equals("hk")) {
+
+					china = (num1 - 1) * 2.5 + 9;
+					y = (china * .15) + china;
+					Margine(request, response);
+					z = (z * .05) + z + 3;
+				}
 			}
 
 		}
 
 		else if (num2.equals("oman") || (num2.equals("saudi")
 				|| (num2.equals("uae") || (num2.equals("qatar") || (num2.equals("bahrain")))))) {
-			if (stores.equals("us")) {
 
-				y = (num1 - 1) * 3 + 12;
-				Margine(request, response);
-			} else if (stores.equals("uk")) {
+			if (shippingtype.equals("5-9 days")) {
+				if (stores.equals("us")) {
 
-				y = (num1 - 1) * 3 + 12 + 5;
-				Margine(request, response);
-			} else if (stores.equals("hk")) {
+					y = (num1 - 1) * 3 + 12;
+					Margine(request, response);
+				} else if (stores.equals("uk")) {
 
-				china = (num1 - 1) * 3 + 12;
-				y = (china * .15) + china;
-				Margine(request, response);
+					y = (num1 - 1) * 3 + 12 + 5;
+					Margine(request, response);
+				} else if (stores.equals("hk")) {
+
+					china = (num1 - 1) * 3 + 12;
+					y = (china * .15) + china;
+					Margine(request, response);
+
+				}
+			} else {
+				if (stores.equals("us")) {
+
+					y = (num1 - 1) * 3 + 12;
+					Margine(request, response);
+					z = (z * .15) + z + 5;
+				} else if (stores.equals("uk")) {
+
+					y = (num1 - 1) * 3 + 12 + 5;
+					Margine(request, response);
+					z = (z * .15) + z + 5;
+				} else if (stores.equals("hk")) {
+
+					china = (num1 - 1) * 3 + 12;
+					y = (china * .15) + china;
+					Margine(request, response);
+					z = (z * .15) + z + 5;
+
+				}
 			}
 
 		} else {
-			if (stores.equals("us")) {
 
-				y = (num1 - 1) * 3 + 15;
-				Margine(request, response);
-			} else if (stores.equals("uk")) {
+			if (shippingtype.equals("5-9 days")) {
+				if (stores.equals("us")) {
 
-				y = (num1 - 1) * 3 + 15 + 5;
-				Margine(request, response);
-			} else if (stores.equals("hk")) {
+					y = (num1 - 1) * 3 + 15;
+					Margine(request, response);
+				} else if (stores.equals("uk")) {
 
-				china = (num1 - 1) * 3 + 15;
-				y = (china * .15) + china;
-				Margine(request, response);
+					y = (num1 - 1) * 3 + 15 + 5;
+					Margine(request, response);
+				} else if (stores.equals("hk")) {
+
+					china = (num1 - 1) * 3 + 15;
+					y = (china * .15) + china;
+					Margine(request, response);
+				}
+			} else {
+
+				if (stores.equals("us")) {
+
+					y = (num1 - 1) * 3 + 15;
+					Margine(request, response);
+					z = (z * .25) + z + 5;
+				} else if (stores.equals("uk")) {
+
+					y = (num1 - 1) * 3 + 15 + 5;
+					Margine(request, response);
+					z = (z * .25) + z + 5;
+				} else if (stores.equals("hk")) {
+
+					china = (num1 - 1) * 3 + 15;
+					y = (china * .15) + china;
+					Margine(request, response);
+					z = (z * .25) + z + 5;
+				}
+
 			}
 		}
 
 		PrintWriter output = response.getWriter();
 		output.println("Shipping Amount($) :" + z);
+
 	}
 
 	public void Margine(HttpServletRequest request, HttpServletResponse response) {
@@ -99,15 +169,13 @@ public class Shipping extends HttpServlet {
 				z = sum + 1;
 			}
 
-		} 
-		else if (num3 == 1) {
+		} else if (num3 == 1) {
 			if (nonprime.equals("yes")) {
 				z = sum;
 			} else {
 				z = sum;
 			}
-		}
-		else if (num3 == 3) {
+		} else if (num3 == 3) {
 			if (nonprime.equals("yes")) {
 				z = sum + 3;
 			} else {

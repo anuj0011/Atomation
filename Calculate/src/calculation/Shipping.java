@@ -24,35 +24,46 @@ public class Shipping extends HttpServlet {
 				if (stores.equals("us")) {
 
 					y = (num1 - 1) * 2.5 + 9;
+					y=Math.ceil(y);
 					Margine(request, response);
 				} else if (stores.equals("uk")) {
 
 					y = (num1 - 1) * 2.5 + 9 + 5;
+					y=Math.ceil(y);
 					Margine(request, response);
 				} else if (stores.equals("hk")) {
 
 					china = (num1 - 1) * 2.5 + 9;
+					china=Math.ceil(china);
 					y = (china * .15) + china;
+					y=Math.ceil(y);
 					Margine(request, response);
 				}
 			} else {
 				if (stores.equals("us")) {
 
 					y = (num1 - 1) * 2.5 + 9;
+					y=Math.ceil(y);
 					Margine(request, response);
 					z = (z * .05) + z + 3;
+					z=Math.ceil(z);
 				} else if (stores.equals("uk")) {
 
 					y = (num1 - 1) * 2.5 + 9 + 5;
+					y=Math.ceil(y);
 					Margine(request, response);
 					z = (z * .05) + z + 3;
+					z=Math.ceil(z);
 
 				} else if (stores.equals("hk")) {
 
 					china = (num1 - 1) * 2.5 + 9;
+					china=Math.ceil(china);
 					y = (china * .15) + china;
+					y=Math.ceil(y);
 					Margine(request, response);
 					z = (z * .05) + z + 3;
+					z=Math.ceil(z);
 				}
 			}
 
@@ -65,15 +76,19 @@ public class Shipping extends HttpServlet {
 				if (stores.equals("us")) {
 
 					y = (num1 - 1) * 3 + 12;
+					y=Math.ceil(y);
 					Margine(request, response);
 				} else if (stores.equals("uk")) {
 
 					y = (num1 - 1) * 3 + 12 + 5;
+					y=Math.ceil(y);
 					Margine(request, response);
 				} else if (stores.equals("hk")) {
 
 					china = (num1 - 1) * 3 + 12;
+					china=Math.ceil(china);
 					y = (china * .15) + china;
+					y=Math.ceil(y);
 					Margine(request, response);
 
 				}
@@ -81,19 +96,26 @@ public class Shipping extends HttpServlet {
 				if (stores.equals("us")) {
 
 					y = (num1 - 1) * 3 + 12;
+					y=Math.ceil(y);
 					Margine(request, response);
 					z = (z * .15) + z + 5;
+					z=Math.ceil(z);
 				} else if (stores.equals("uk")) {
 
 					y = (num1 - 1) * 3 + 12 + 5;
+					y=Math.ceil(y);
 					Margine(request, response);
 					z = (z * .15) + z + 5;
+					z=Math.ceil(z);
 				} else if (stores.equals("hk")) {
 
 					china = (num1 - 1) * 3 + 12;
+					china=Math.ceil(china);
 					y = (china * .15) + china;
+					y=Math.ceil(y);
 					Margine(request, response);
 					z = (z * .15) + z + 5;
+					z=Math.ceil(z);
 
 				}
 			}
@@ -104,15 +126,19 @@ public class Shipping extends HttpServlet {
 				if (stores.equals("us")) {
 
 					y = (num1 - 1) * 3 + 15;
+					y=Math.ceil(y);
 					Margine(request, response);
 				} else if (stores.equals("uk")) {
 
 					y = (num1 - 1) * 3 + 15 + 5;
+					y=Math.ceil(y);
 					Margine(request, response);
 				} else if (stores.equals("hk")) {
 
 					china = (num1 - 1) * 3 + 15;
+					china=Math.ceil(china);
 					y = (china * .15) + china;
+					y=Math.ceil(y);
 					Margine(request, response);
 				}
 			} else {
@@ -120,19 +146,26 @@ public class Shipping extends HttpServlet {
 				if (stores.equals("us")) {
 
 					y = (num1 - 1) * 3 + 15;
+					y=Math.ceil(y);
 					Margine(request, response);
 					z = (z * .25) + z + 5;
+					z=Math.ceil(z);
 				} else if (stores.equals("uk")) {
 
 					y = (num1 - 1) * 3 + 15 + 5;
+					y=Math.ceil(y);
 					Margine(request, response);
 					z = (z * .25) + z + 5;
+					z=Math.ceil(z);
 				} else if (stores.equals("hk")) {
 
 					china = (num1 - 1) * 3 + 15;
+					china = Math.ceil(china);
 					y = (china * .15) + china;
+					y = Math.ceil(y);
 					Margine(request, response);
 					z = (z * .25) + z + 5;
+					z = Math.ceil(z);
 				}
 
 			}
@@ -149,17 +182,22 @@ public class Shipping extends HttpServlet {
 		if (y <= 20) {
 
 			sum = (y * .20) + y;
+			sum=Math.ceil(sum);
 		} else if (y > 20 && y <= 70) {
 			sum = (y * .15) + y;
+			sum=Math.ceil(sum);
 
 		} else if (y > 70 && y <= 100) {
 			sum = (y * .10) + y;
+			sum=Math.ceil(sum);
 
 		} else if (y > 100 && y <= 300) {
 			sum = (y * .08) + y;
+			sum=Math.ceil(sum);
 
 		} else {
 			sum = (y * .05) + y;
+			sum=Math.ceil(sum);
 		}
 
 		if (num3 == 2) {

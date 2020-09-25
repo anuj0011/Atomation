@@ -147,7 +147,7 @@ class MyFrame extends JFrame
 		reset.addActionListener(this);
 		c.add(reset);
 
-		tout = new JTextArea();
+		tout = new JTextArea("DB condition                                                 1. IF items have eau de, parfum,Perfume,edp,edt,spray,Rogaine,Rust oleum,paint,par-feme,body mist,fragrance mist,cologne,nail polish keywords in name then add 18$ in shipping price.                   2. If items have battery,batteries,li ion,li-ion, lithium ion, lithium metal,corrosive,flammable,aerosol,hazardous,hazard,rust oleum,paint,Co2,Pistol keywords in name then add 20$ in shipping price.");
 		tout.setFont(new Font("Arial", Font.PLAIN, 15));
 		tout.setSize(300, 400);
 		tout.setLocation(500, 100);

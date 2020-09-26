@@ -4,36 +4,31 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-class MyFrame extends JFrame
-{
+class MyFrame extends JFrame {
 
 	// Components of the Form
 	private Container c;
+//main shipping	
 	private JLabel title;
 	private JLabel weight;
 	private JTextField num1;
 	private JLabel cart;
 	private JTextField num3;
-
 	private JLabel prime;
 	private JComboBox nonprime;
-
 	private ButtonGroup gengp;
-
 	private JLabel country;
 	private JComboBox num2;
-
 	private JLabel store;
 	private JComboBox stores;
-
 	private JLabel shipping;
 	private JComboBox shippingtype;
-
 	private JButton sub;
 	private JButton reset;
-	
-	
-	
+	private JLabel res;
+
+// inches to pounds
+
 	private JLabel title2;
 	private JLabel length;
 	private JTextField tlength;
@@ -44,12 +39,15 @@ class MyFrame extends JFrame
 	private JButton sub2;
 	private JButton reset2;
 	private JLabel res2;
-	
-	
-	
+// kg to pounds
+	private JLabel title3;
+	private JLabel kg;
+	private JTextField tkg;
+	private JButton sub3;
+	private JButton reset3;
+	private JLabel res3;
+//note	
 	private JTextArea tout;
-	private JLabel res;
-	
 
 	private String nonprimes[] = { "yes", "no" };
 
@@ -69,6 +67,8 @@ class MyFrame extends JFrame
 
 		c = getContentPane();
 		c.setLayout(null);
+
+//main shipping	
 
 		title = new JLabel("SHIPPING FINDER");
 		title.setFont(new Font("Arial", Font.PLAIN, 30));
@@ -151,25 +151,33 @@ class MyFrame extends JFrame
 		sub = new JButton("Submit");
 		sub.setFont(new Font("Arial", Font.PLAIN, 15));
 		sub.setSize(100, 20);
-		sub.setLocation(150, 450);
+		sub.setLocation(150, 390);
 		sub.addActionListener(b1Event);
 		c.add(sub);
 
 		reset = new JButton("Reset");
 		reset.setFont(new Font("Arial", Font.PLAIN, 15));
 		reset.setSize(100, 20);
-		reset.setLocation(270, 450);
+		reset.setLocation(270, 390);
 		reset.addActionListener(b1Event);
 		c.add(reset);
 
-		
+		res = new JLabel("");
+		res.setFont(new Font("Arial", Font.PLAIN, 20));
+		res.setSize(500, 25);
+		res.setLocation(125, 425);
+		c.add(res);
+
+		setVisible(true);
+
+// inches to pounds
+
 		title2 = new JLabel("Inches to Pounds:");
 		title2.setFont(new Font("Arial", Font.PLAIN, 20));
 		title2.setSize(300, 20);
 		title2.setLocation(550, 100);
 		c.add(title2);
-		
-		
+
 		length = new JLabel("L");
 		length.setFont(new Font("Arial", Font.PLAIN, 20));
 		length.setSize(50, 25);
@@ -181,7 +189,7 @@ class MyFrame extends JFrame
 		tlength.setSize(50, 25);
 		tlength.setLocation(575, 150);
 		c.add(tlength);
-		
+
 		bredth = new JLabel("B");
 		bredth.setFont(new Font("Arial", Font.PLAIN, 20));
 		bredth.setSize(50, 25);
@@ -193,7 +201,7 @@ class MyFrame extends JFrame
 		tbredth.setSize(50, 25);
 		tbredth.setLocation(660, 150);
 		c.add(tbredth);
-		
+
 		height = new JLabel("H");
 		height.setFont(new Font("Arial", Font.PLAIN, 20));
 		height.setSize(50, 25);
@@ -205,7 +213,7 @@ class MyFrame extends JFrame
 		theight.setSize(50, 25);
 		theight.setLocation(745, 150);
 		c.add(theight);
-		
+
 		sub2 = new JButton("Submit");
 		sub2.setFont(new Font("Arial", Font.PLAIN, 15));
 		sub2.setSize(90, 20);
@@ -219,7 +227,7 @@ class MyFrame extends JFrame
 		reset2.setLocation(675, 200);
 		reset2.addActionListener(b2Event);
 		c.add(reset2);
-		
+
 		res2 = new JLabel("");
 		res2.setFont(new Font("Arial", Font.PLAIN, 20));
 		res2.setSize(500, 25);
@@ -227,23 +235,60 @@ class MyFrame extends JFrame
 		c.add(res2);
 
 		setVisible(true);
-		
-		
-		tout = new JTextArea("*NOTE*                                                       1. IF items have eau de, parfum,Perfume,edp,edt,spray,Rogaine,Rust oleum,paint,par-feme,body mist,fragrance mist,cologne,nail polish keywords in name then add 18$ in shipping price.                   2. If items have battery,batteries,li ion,li-ion, lithium ion, lithium metal,corrosive,flammable,aerosol,hazardous,hazard,rust oleum,paint,Co2,Pistol keywords in name then add 20$ in shipping price.");
+
+// kg to pounds
+
+		title3 = new JLabel("Kg to Pounds:");
+		title3.setFont(new Font("Arial", Font.PLAIN, 20));
+		title3.setSize(300, 25);
+		title3.setLocation(550, 280);
+		c.add(title3);
+
+		kg = new JLabel("Kg");
+		kg.setFont(new Font("Arial", Font.PLAIN, 20));
+		kg.setSize(50, 25);
+		kg.setLocation(550, 330);
+		c.add(kg);
+
+		tkg = new JTextField();
+		tkg.setFont(new Font("Arial", Font.PLAIN, 15));
+		tkg.setSize(50, 25);
+		tkg.setLocation(585, 330);
+		c.add(tkg);
+
+		sub3 = new JButton("Submit");
+		sub3.setFont(new Font("Arial", Font.PLAIN, 15));
+		sub3.setSize(90, 20);
+		sub3.setLocation(575, 390);
+		sub3.addActionListener(b3Event);
+		c.add(sub3);
+
+		reset3 = new JButton("Reset");
+		reset3.setFont(new Font("Arial", Font.PLAIN, 15));
+		reset3.setSize(90, 20);
+		reset3.setLocation(675, 390);
+		reset3.addActionListener(b3Event);
+		c.add(reset3);
+
+		res3 = new JLabel("");
+		res3.setFont(new Font("Arial", Font.PLAIN, 20));
+		res3.setSize(500, 25);
+		res3.setLocation(550, 425);
+		c.add(res3);
+
+		setVisible(true);
+
+// note
+
+		tout = new JTextArea(
+				"*NOTE* 1. IF items have eau de, parfum,Perfume,edp,edt,spray,Rogaine,Rust oleum,paint,par-feme,body mist,fragrance mist,cologne,nail polish keywords in name then add 18$ in shipping price.                   2. If items have battery,batteries,li ion,li-ion, lithium ion, lithium metal,corrosive,flammable,aerosol,hazardous,hazard,rust oleum,paint,Co2,Pistol keywords in name then add 20$ in shipping price.");
 		tout.setFont(new Font("Arial", Font.PLAIN, 15));
-		tout.setSize(300, 200);
-		tout.setLocation(575, 350);
+		tout.setSize(750, 175);
+		tout.setLocation(100, 475);
 		tout.setLineWrap(true);
 		tout.setEditable(false);
 		c.add(tout);
 
-		res = new JLabel("");
-		res.setFont(new Font("Arial", Font.PLAIN, 20));
-		res.setSize(500, 25);
-		res.setLocation(100, 500);
-		c.add(res);
-
-		setVisible(true);
 	}
 
 	// method actionPerformed()
@@ -255,221 +300,248 @@ class MyFrame extends JFrame
 	double sum = 0;
 	double china;
 	double v;
-	
+	double g;
+
 	ActionListener b1Event = new ActionListener() {
 
-	public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(ActionEvent e) {
 
-		String text = num1.getText();
-		int nnum1 = Integer.parseInt(text);
-		String nnum2 = (String) num2.getSelectedItem();
-		String sshippingtype = (String) shippingtype.getSelectedItem();
-		String sstores = (String) stores.getSelectedItem();
+			String text = num1.getText();
+			int nnum1 = Integer.parseInt(text);
+			String nnum2 = (String) num2.getSelectedItem();
+			String sshippingtype = (String) shippingtype.getSelectedItem();
+			String sstores = (String) stores.getSelectedItem();
 
-		if (e.getSource() == sub) {
-			if (nnum2.equals("kuwait")) {
+			if (e.getSource() == sub) {
+				if (nnum2.equals("kuwait")) {
 
-				if (sshippingtype.equals("5-9 days")) {
-					if (sstores.equals("us")) {
+					if (sshippingtype.equals("5-9 days")) {
+						if (sstores.equals("us")) {
 
-						y = (nnum1 - 1) * 2.5 + 9;
-						y = Math.ceil(y) + 1;
-						Margine();
-					} else if (sstores.equals("uk")) {
+							y = (nnum1 - 1) * 2.5 + 9;
+							y = Math.ceil(y) + 1;
+							Margine();
+						} else if (sstores.equals("uk")) {
 
-						y = (nnum1 - 1) * 2.5 + 9 + 5;
-						y = Math.ceil(y) + 1;
-						Margine();
-					} else if (sstores.equals("hk")) {
+							y = (nnum1 - 1) * 2.5 + 9 + 5;
+							y = Math.ceil(y) + 1;
+							Margine();
+						} else if (sstores.equals("hk")) {
 
-						china = (nnum1 - 1) * 2.5 + 9;
-						china = Math.ceil(china);
-						y = (china * .15) + china;
-						y = Math.ceil(y) + 1;
-						Margine();
+							china = (nnum1 - 1) * 2.5 + 9;
+							china = Math.ceil(china);
+							y = (china * .15) + china;
+							y = Math.ceil(y) + 1;
+							Margine();
+						}
+					} else {
+						if (sstores.equals("us")) {
+
+							y = (nnum1 - 1) * 2.5 + 9;
+							y = Math.ceil(y);
+							Margine();
+							z = (z * .05) + z + 3;
+							z = Math.ceil(z);
+						} else if (sstores.equals("uk")) {
+
+							y = (nnum1 - 1) * 2.5 + 9 + 5;
+							y = Math.ceil(y);
+							Margine();
+							z = (z * .05) + z + 3;
+							z = Math.ceil(z);
+
+						} else if (sstores.equals("hk")) {
+
+							china = (nnum1 - 1) * 2.5 + 9;
+							china = Math.ceil(china);
+							y = (china * .15) + china;
+							y = Math.ceil(y);
+							Margine();
+							z = (z * .05) + z + 3;
+							z = Math.ceil(z);
+						}
 					}
+
+				}
+
+				else if (nnum2.equals("oman") || (nnum2.equals("saudi")
+						|| (nnum2.equals("uae") || (nnum2.equals("qatar") || (nnum2.equals("bahrain")))))) {
+
+					if (sshippingtype.equals("5-9 days")) {
+						if (sstores.equals("us")) {
+
+							y = (nnum1 - 1) * 3 + 12;
+							y = Math.ceil(y) + 1;
+							Margine();
+						} else if (sstores.equals("uk")) {
+
+							y = (nnum1 - 1) * 3 + 12 + 5;
+							y = Math.ceil(y) + 1;
+							Margine();
+						} else if (sstores.equals("hk")) {
+
+							china = (nnum1 - 1) * 3 + 12;
+							china = Math.ceil(china);
+							y = (china * .15) + china;
+							y = Math.ceil(y) + 1;
+							Margine();
+
+						}
+					} else {
+						if (sstores.equals("us")) {
+
+							y = (nnum1 - 1) * 3 + 12;
+							y = Math.ceil(y);
+							Margine();
+							z = (z * .15) + z + 5;
+							z = Math.ceil(z);
+						} else if (sstores.equals("uk")) {
+
+							y = (nnum1 - 1) * 3 + 12 + 5;
+							y = Math.ceil(y);
+							Margine();
+							z = (z * .15) + z + 5;
+							z = Math.ceil(z);
+						} else if (sstores.equals("hk")) {
+
+							china = (nnum1 - 1) * 3 + 12;
+							china = Math.ceil(china);
+							y = (china * .15) + china;
+							y = Math.ceil(y);
+							Margine();
+							z = (z * .15) + z + 5;
+							z = Math.ceil(z);
+
+						}
+					}
+
 				} else {
-					if (sstores.equals("us")) {
 
-						y = (nnum1 - 1) * 2.5 + 9;
-						y = Math.ceil(y);
-						Margine();
-						z = (z * .05) + z + 3;
-						z = Math.ceil(z);
-					} else if (sstores.equals("uk")) {
+					if (sshippingtype.equals("5-9 days")) {
+						if (sstores.equals("us")) {
 
-						y = (nnum1 - 1) * 2.5 + 9 + 5;
-						y = Math.ceil(y);
-						Margine();
-						z = (z * .05) + z + 3;
-						z = Math.ceil(z);
+							y = (nnum1 - 1) * 3 + 15;
+							y = Math.ceil(y) + 1;
+							Margine();
+						} else if (sstores.equals("uk")) {
 
-					} else if (sstores.equals("hk")) {
+							y = (nnum1 - 1) * 3 + 15 + 5;
+							y = Math.ceil(y) + 1;
+							Margine();
+						} else if (sstores.equals("hk")) {
 
-						china = (nnum1 - 1) * 2.5 + 9;
-						china = Math.ceil(china);
-						y = (china * .15) + china;
-						y = Math.ceil(y);
-						Margine();
-						z = (z * .05) + z + 3;
-						z = Math.ceil(z);
+							china = (nnum1 - 1) * 3 + 15;
+							china = Math.ceil(china);
+							y = (china * .15) + china;
+							y = Math.ceil(y) + 1;
+							Margine();
+						}
+					} else {
+
+						if (sstores.equals("us")) {
+
+							y = (nnum1 - 1) * 3 + 15;
+							y = Math.ceil(y);
+							Margine();
+							z = (z * .25) + z + 5;
+							z = Math.ceil(z);
+						} else if (sstores.equals("uk")) {
+
+							y = (nnum1 - 1) * 3 + 15 + 5;
+							y = Math.ceil(y);
+							Margine();
+							z = (z * .25) + z + 5;
+							z = Math.ceil(z);
+						} else if (sstores.equals("hk")) {
+
+							china = (nnum1 - 1) * 3 + 15;
+							china = Math.ceil(china);
+							y = (china * .15) + china;
+							y = Math.ceil(y);
+							Margine();
+							z = (z * .25) + z + 5;
+							z = Math.ceil(z);
+						}
+
 					}
 				}
 
+				res.setText("Shipping Price($)" + z);
 			}
 
-			else if (nnum2.equals("oman") || (nnum2.equals("saudi")
-					|| (nnum2.equals("uae") || (nnum2.equals("qatar") || (nnum2.equals("bahrain")))))) {
+			else if (e.getSource() == reset) {
+				String def = "";
+				num1.setText(def);
+				num3.setText(def);
 
-				if (sshippingtype.equals("5-9 days")) {
-					if (sstores.equals("us")) {
-
-						y = (nnum1 - 1) * 3 + 12;
-						y = Math.ceil(y) + 1;
-						Margine();
-					} else if (sstores.equals("uk")) {
-
-						y = (nnum1 - 1) * 3 + 12 + 5;
-						y = Math.ceil(y) + 1;
-						Margine();
-					} else if (sstores.equals("hk")) {
-
-						china = (nnum1 - 1) * 3 + 12;
-						china = Math.ceil(china);
-						y = (china * .15) + china;
-						y = Math.ceil(y) + 1;
-						Margine();
-
-					}
-				} else {
-					if (sstores.equals("us")) {
-
-						y = (nnum1 - 1) * 3 + 12;
-						y = Math.ceil(y);
-						Margine();
-						z = (z * .15) + z + 5;
-						z = Math.ceil(z);
-					} else if (sstores.equals("uk")) {
-
-						y = (nnum1 - 1) * 3 + 12 + 5;
-						y = Math.ceil(y);
-						Margine();
-						z = (z * .15) + z + 5;
-						z = Math.ceil(z);
-					} else if (sstores.equals("hk")) {
-
-						china = (nnum1 - 1) * 3 + 12;
-						china = Math.ceil(china);
-						y = (china * .15) + china;
-						y = Math.ceil(y);
-						Margine();
-						z = (z * .15) + z + 5;
-						z = Math.ceil(z);
-
-					}
-				}
-
-			} else {
-
-				if (sshippingtype.equals("5-9 days")) {
-					if (sstores.equals("us")) {
-
-						y = (nnum1 - 1) * 3 + 15;
-						y = Math.ceil(y) + 1;
-						Margine();
-					} else if (sstores.equals("uk")) {
-
-						y = (nnum1 - 1) * 3 + 15 + 5;
-						y = Math.ceil(y) + 1;
-						Margine();
-					} else if (sstores.equals("hk")) {
-
-						china = (nnum1 - 1) * 3 + 15;
-						china = Math.ceil(china);
-						y = (china * .15) + china;
-						y = Math.ceil(y) + 1;
-						Margine();
-					}
-				} else {
-
-					if (sstores.equals("us")) {
-
-						y = (nnum1 - 1) * 3 + 15;
-						y = Math.ceil(y);
-						Margine();
-						z = (z * .25) + z + 5;
-						z = Math.ceil(z);
-					} else if (sstores.equals("uk")) {
-
-						y = (nnum1 - 1) * 3 + 15 + 5;
-						y = Math.ceil(y);
-						Margine();
-						z = (z * .25) + z + 5;
-						z = Math.ceil(z);
-					} else if (sstores.equals("hk")) {
-
-						china = (nnum1 - 1) * 3 + 15;
-						china = Math.ceil(china);
-						y = (china * .15) + china;
-						y = Math.ceil(y);
-						Margine();
-						z = (z * .25) + z + 5;
-						z = Math.ceil(z);
-					}
-
-				}
+				num2.setSelectedIndex(0);
+				shippingtype.setSelectedIndex(0);
+				stores.setSelectedIndex(0);
+				nonprime.setSelectedIndex(0);
+				res.setText(def);
 			}
 
-			res.setText("Shipping Price($)" + z);
 		}
-
-		else if (e.getSource() == reset) {
-			String def = "";
-			num1.setText(def);
-			num3.setText(def);
-
-			num2.setSelectedIndex(0);
-			shippingtype.setSelectedIndex(0);
-			stores.setSelectedIndex(0);
-			nonprime.setSelectedIndex(0);
-			res.setText(def);
-		}
-
-	}
 	};
+
+//inches to pounds
+
 	ActionListener b2Event = new ActionListener() {
 
-	public void actionPerformed(ActionEvent t) {
-		
-		String text2 = tlength.getText();
-		
-		double ttlength = Integer.parseInt(text2);
-		
-		String text3 = tbredth.getText();
-		double ttbredth = Integer.parseInt(text3);
-		
-		String text4 = theight.getText();
-		double ttheight = Integer.parseInt(text4);
-		
-		if (t.getSource() == sub2) {
-			v = ttlength*ttbredth*ttheight/166;
-			v = Math.ceil(v);
-			res2.setText("Weight(Pounds)" + v);
-		}
-		else if (t.getSource() == reset2) {
-			String f = "";
-			tlength.setText(f);
-			tbredth.setText(f);
-			theight.setText(f);
-			
-			res2.setText(f);
+		public void actionPerformed(ActionEvent t) {
+
+			String text2 = tlength.getText();
+
+			double ttlength = Integer.parseInt(text2);
+
+			String text3 = tbredth.getText();
+			double ttbredth = Integer.parseInt(text3);
+
+			String text4 = theight.getText();
+			double ttheight = Integer.parseInt(text4);
+
+			if (t.getSource() == sub2) {
+				v = ttlength * ttbredth * ttheight / 166;
+				v = Math.ceil(v);
+				res2.setText("Weight(Pounds)" + v);
+			} else if (t.getSource() == reset2) {
+				String f = "";
+				tlength.setText(f);
+				tbredth.setText(f);
+				theight.setText(f);
+
+				res2.setText(f);
+			}
+
 		}
 
-		
-	}
-	
 	};
-	
+
+//kg to pounds	
+
+	ActionListener b3Event = new ActionListener() {
+
+		public void actionPerformed(ActionEvent w) {
+
+			String text5 = tkg.getText();
+			double ttkg = Integer.parseInt(text5);
+
+			if (w.getSource() == sub3) {
+				g = ttkg * 2.205;
+				g = Math.ceil(g);
+				res3.setText("Weight(Pounds)" + g);
+			} else if (w.getSource() == reset3) {
+				String p = "";
+				tkg.setText(p);
+				res3.setText(p);
+			}
+
+		}
+
+	};
+
+//margine method to call 
+
 	public void Margine() {
 		String text2 = num3.getText();
 		int nnum3 = Integer.parseInt(text2);
@@ -533,7 +605,6 @@ class MyFrame extends JFrame
 
 // Driver Code 
 }
-
 
 public class Ubuyshipping {
 	public static void main(String[] args) throws Exception {

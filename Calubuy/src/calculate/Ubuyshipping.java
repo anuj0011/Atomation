@@ -5,8 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 class MyFrame extends JFrame
-
-		implements ActionListener {
+{
 
 	// Components of the Form
 	private Container c;
@@ -32,9 +31,25 @@ class MyFrame extends JFrame
 
 	private JButton sub;
 	private JButton reset;
+	
+	
+	
+	private JLabel title2;
+	private JLabel length;
+	private JTextField tlength;
+	private JLabel bredth;
+	private JTextField tbredth;
+	private JLabel height;
+	private JTextField theight;
+	private JButton sub2;
+	private JButton reset2;
+	private JLabel res2;
+	
+	
+	
 	private JTextArea tout;
 	private JLabel res;
-	private JTextArea resadd;
+	
 
 	private String nonprimes[] = { "yes", "no" };
 
@@ -137,20 +152,87 @@ class MyFrame extends JFrame
 		sub.setFont(new Font("Arial", Font.PLAIN, 15));
 		sub.setSize(100, 20);
 		sub.setLocation(150, 450);
-		sub.addActionListener(this);
+		sub.addActionListener(b1Event);
 		c.add(sub);
 
 		reset = new JButton("Reset");
 		reset.setFont(new Font("Arial", Font.PLAIN, 15));
 		reset.setSize(100, 20);
 		reset.setLocation(270, 450);
-		reset.addActionListener(this);
+		reset.addActionListener(b1Event);
 		c.add(reset);
 
-		tout = new JTextArea("DB condition                                                 1. IF items have eau de, parfum,Perfume,edp,edt,spray,Rogaine,Rust oleum,paint,par-feme,body mist,fragrance mist,cologne,nail polish keywords in name then add 18$ in shipping price.                   2. If items have battery,batteries,li ion,li-ion, lithium ion, lithium metal,corrosive,flammable,aerosol,hazardous,hazard,rust oleum,paint,Co2,Pistol keywords in name then add 20$ in shipping price.");
+		
+		title2 = new JLabel("Inches to Pounds:");
+		title2.setFont(new Font("Arial", Font.PLAIN, 20));
+		title2.setSize(300, 20);
+		title2.setLocation(550, 100);
+		c.add(title2);
+		
+		
+		length = new JLabel("L");
+		length.setFont(new Font("Arial", Font.PLAIN, 20));
+		length.setSize(50, 25);
+		length.setLocation(550, 150);
+		c.add(length);
+
+		tlength = new JTextField();
+		tlength.setFont(new Font("Arial", Font.PLAIN, 15));
+		tlength.setSize(50, 25);
+		tlength.setLocation(575, 150);
+		c.add(tlength);
+		
+		bredth = new JLabel("B");
+		bredth.setFont(new Font("Arial", Font.PLAIN, 20));
+		bredth.setSize(50, 25);
+		bredth.setLocation(635, 150);
+		c.add(bredth);
+
+		tbredth = new JTextField();
+		tbredth.setFont(new Font("Arial", Font.PLAIN, 15));
+		tbredth.setSize(50, 25);
+		tbredth.setLocation(660, 150);
+		c.add(tbredth);
+		
+		height = new JLabel("H");
+		height.setFont(new Font("Arial", Font.PLAIN, 20));
+		height.setSize(50, 25);
+		height.setLocation(720, 150);
+		c.add(height);
+
+		theight = new JTextField();
+		theight.setFont(new Font("Arial", Font.PLAIN, 15));
+		theight.setSize(50, 25);
+		theight.setLocation(745, 150);
+		c.add(theight);
+		
+		sub2 = new JButton("Submit");
+		sub2.setFont(new Font("Arial", Font.PLAIN, 15));
+		sub2.setSize(90, 20);
+		sub2.setLocation(575, 200);
+		sub2.addActionListener(b2Event);
+		c.add(sub2);
+
+		reset2 = new JButton("Reset");
+		reset2.setFont(new Font("Arial", Font.PLAIN, 15));
+		reset2.setSize(90, 20);
+		reset2.setLocation(675, 200);
+		reset2.addActionListener(b2Event);
+		c.add(reset2);
+		
+		res2 = new JLabel("");
+		res2.setFont(new Font("Arial", Font.PLAIN, 20));
+		res2.setSize(500, 25);
+		res2.setLocation(550, 225);
+		c.add(res2);
+
+		setVisible(true);
+		
+		
+		tout = new JTextArea("*NOTE*                                                       1. IF items have eau de, parfum,Perfume,edp,edt,spray,Rogaine,Rust oleum,paint,par-feme,body mist,fragrance mist,cologne,nail polish keywords in name then add 18$ in shipping price.                   2. If items have battery,batteries,li ion,li-ion, lithium ion, lithium metal,corrosive,flammable,aerosol,hazardous,hazard,rust oleum,paint,Co2,Pistol keywords in name then add 20$ in shipping price.");
 		tout.setFont(new Font("Arial", Font.PLAIN, 15));
-		tout.setSize(300, 400);
-		tout.setLocation(500, 100);
+		tout.setSize(300, 200);
+		tout.setLocation(575, 350);
 		tout.setLineWrap(true);
 		tout.setEditable(false);
 		c.add(tout);
@@ -160,13 +242,6 @@ class MyFrame extends JFrame
 		res.setSize(500, 25);
 		res.setLocation(100, 500);
 		c.add(res);
-
-		resadd = new JTextArea();
-		resadd.setFont(new Font("Arial", Font.PLAIN, 15));
-		resadd.setSize(200, 75);
-		resadd.setLocation(580, 175);
-		resadd.setLineWrap(true);
-		c.add(resadd);
 
 		setVisible(true);
 	}
@@ -179,6 +254,9 @@ class MyFrame extends JFrame
 	double z;
 	double sum = 0;
 	double china;
+	double v;
+	
+	ActionListener b1Event = new ActionListener() {
 
 	public void actionPerformed(ActionEvent e) {
 
@@ -342,7 +420,7 @@ class MyFrame extends JFrame
 				}
 			}
 
-			res.setText("Shipping Amount($)" + z);
+			res.setText("Shipping Price($)" + z);
 		}
 
 		else if (e.getSource() == reset) {
@@ -357,13 +435,41 @@ class MyFrame extends JFrame
 			res.setText(def);
 		}
 
-		/*
-		 * PrintWriter output = response.getWriter();
-		 * output.println("Shipping Amount($) :" + z);
-		 */
-
 	}
+	};
+	ActionListener b2Event = new ActionListener() {
 
+	public void actionPerformed(ActionEvent t) {
+		
+		String text2 = tlength.getText();
+		
+		double ttlength = Integer.parseInt(text2);
+		
+		String text3 = tbredth.getText();
+		double ttbredth = Integer.parseInt(text3);
+		
+		String text4 = theight.getText();
+		double ttheight = Integer.parseInt(text4);
+		
+		if (t.getSource() == sub2) {
+			v = ttlength*ttbredth*ttheight/166;
+			v = Math.ceil(v);
+			res2.setText("Weight(Pounds)" + v);
+		}
+		else if (t.getSource() == reset2) {
+			String f = "";
+			tlength.setText(f);
+			tbredth.setText(f);
+			theight.setText(f);
+			
+			res2.setText(f);
+		}
+
+		
+	}
+	
+	};
+	
 	public void Margine() {
 		String text2 = num3.getText();
 		int nnum3 = Integer.parseInt(text2);
@@ -426,8 +532,8 @@ class MyFrame extends JFrame
 	}
 
 // Driver Code 
-
 }
+
 
 public class Ubuyshipping {
 	public static void main(String[] args) throws Exception {

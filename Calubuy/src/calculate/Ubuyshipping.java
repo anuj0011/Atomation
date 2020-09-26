@@ -71,9 +71,9 @@ class MyFrame extends JFrame {
 //main shipping	
 
 		title = new JLabel("SHIPPING FINDER");
-		title.setFont(new Font("Arial", Font.PLAIN, 30));
+		title.setFont(new Font("Arial", Font.PLAIN, 25));
 		title.setSize(300, 30);
-		title.setLocation(300, 30);
+		title.setLocation(350, 30);
 		c.add(title);
 
 		weight = new JLabel("Weight(pounds)");
@@ -307,7 +307,7 @@ class MyFrame extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 
 			String text = num1.getText();
-			int nnum1 = Integer.parseInt(text);
+			double nnum1 = Double.parseDouble(text);
 			String nnum2 = (String) num2.getSelectedItem();
 			String sshippingtype = (String) shippingtype.getSelectedItem();
 			String sstores = (String) stores.getSelectedItem();
@@ -492,13 +492,13 @@ class MyFrame extends JFrame {
 
 			String text2 = tlength.getText();
 
-			double ttlength = Integer.parseInt(text2);
+			double ttlength = Double.parseDouble(text2);
 
 			String text3 = tbredth.getText();
-			double ttbredth = Integer.parseInt(text3);
+			double ttbredth = Double.parseDouble(text3);
 
 			String text4 = theight.getText();
-			double ttheight = Integer.parseInt(text4);
+			double ttheight = Double.parseDouble(text4);
 
 			if (t.getSource() == sub2) {
 				v = ttlength * ttbredth * ttheight / 166;
@@ -524,7 +524,7 @@ class MyFrame extends JFrame {
 		public void actionPerformed(ActionEvent w) {
 
 			String text5 = tkg.getText();
-			double ttkg = Integer.parseInt(text5);
+			double ttkg = Double.parseDouble(text5);
 
 			if (w.getSource() == sub3) {
 				g = ttkg * 2.205;

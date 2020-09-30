@@ -319,20 +319,23 @@ class MyFrame extends JFrame {
 						if (sstores.equals("us")) {
 
 							y = (nnum1 - 1) * 2.5 + 9;
-							y = Math.ceil(y) + 1;
+							y = Math.ceil(y);
 							Margine();
+							z = z+1;
 						} else if (sstores.equals("uk")) {
 
 							y = (nnum1 - 1) * 2.5 + 9 + 5;
-							y = Math.ceil(y) + 1;
+							y = Math.ceil(y);
 							Margine();
+							z = z+1;
 						} else if (sstores.equals("hk")) {
 
 							china = (nnum1 - 1) * 2.5 + 9;
 							china = Math.ceil(china);
 							y = (china * .15) + china;
-							y = Math.ceil(y) + 1;
+							y = Math.ceil(y);
 							Margine();
+							z = z+1;
 						}
 					} else {
 						if (sstores.equals("us")) {
@@ -371,21 +374,23 @@ class MyFrame extends JFrame {
 						if (sstores.equals("us")) {
 
 							y = (nnum1 - 1) * 3 + 12;
-							y = Math.ceil(y) + 1;
+							y = Math.ceil(y);
 							Margine();
+							z = z+1;
 						} else if (sstores.equals("uk")) {
 
 							y = (nnum1 - 1) * 3 + 12 + 5;
-							y = Math.ceil(y) + 1;
+							y = Math.ceil(y);
 							Margine();
+							z = z+1;
 						} else if (sstores.equals("hk")) {
 
 							china = (nnum1 - 1) * 3 + 12;
 							china = Math.ceil(china);
 							y = (china * .15) + china;
-							y = Math.ceil(y) + 1;
+							y = Math.ceil(y);
 							Margine();
-
+							z = z+1;
 						}
 					} else {
 						if (sstores.equals("us")) {
@@ -421,20 +426,23 @@ class MyFrame extends JFrame {
 						if (sstores.equals("us")) {
 
 							y = (nnum1 - 1) * 3 + 15;
-							y = Math.ceil(y) + 1;
+							y = Math.ceil(y);
 							Margine();
+							z = z+1;
 						} else if (sstores.equals("uk")) {
 
 							y = (nnum1 - 1) * 3 + 15 + 5;
-							y = Math.ceil(y) + 1;
+							y = Math.ceil(y);
 							Margine();
+							z = z+1;
 						} else if (sstores.equals("hk")) {
 
 							china = (nnum1 - 1) * 3 + 15;
 							china = Math.ceil(china);
 							y = (china * .15) + china;
-							y = Math.ceil(y) + 1;
+							y = Math.ceil(y);
 							Margine();
+							z = z+1;
 						}
 					} else {
 
@@ -493,13 +501,16 @@ class MyFrame extends JFrame {
 			String text2 = tlength.getText();
 
 			double ttlength = Double.parseDouble(text2);
-
+			ttlength = Math.ceil(ttlength);
+			
 			String text3 = tbredth.getText();
 			double ttbredth = Double.parseDouble(text3);
-
+			ttbredth = Math.ceil(ttbredth);
+			
 			String text4 = theight.getText();
 			double ttheight = Double.parseDouble(text4);
-
+			ttheight = Math.ceil(ttheight);
+			
 			if (t.getSource() == sub2) {
 				v = ttlength * ttbredth * ttheight / 166;
 				v = Math.ceil(v);

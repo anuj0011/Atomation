@@ -63,7 +63,7 @@ class MyFrame extends JFrame {
 		setTitle("UBUY TOOLS");
 		setBounds(300, 90, 900, 600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setResizable(false);
+		setResizable(true);
 
 		c = getContentPane();
 		c.setLayout(null);
@@ -321,13 +321,13 @@ class MyFrame extends JFrame {
 							y = (nnum1 - 1) * 2.5 + 9;
 							y = Math.ceil(y);
 							Margine();
-							z = z+1;
+							z = z + 1;
 						} else if (sstores.equals("uk")) {
 
 							y = (nnum1 - 1) * 2.5 + 9 + 5;
 							y = Math.ceil(y);
 							Margine();
-							z = z+1;
+							z = z + 1;
 						} else if (sstores.equals("hk")) {
 
 							china = (nnum1 - 1) * 2.5 + 9;
@@ -335,7 +335,7 @@ class MyFrame extends JFrame {
 							y = (china * .15) + china;
 							y = Math.ceil(y);
 							Margine();
-							z = z+1;
+							z = z + 1;
 						}
 					} else {
 						if (sstores.equals("us")) {
@@ -376,13 +376,13 @@ class MyFrame extends JFrame {
 							y = (nnum1 - 1) * 3 + 12;
 							y = Math.ceil(y);
 							Margine();
-							z = z+1;
+							z = z + 1;
 						} else if (sstores.equals("uk")) {
 
 							y = (nnum1 - 1) * 3 + 12 + 5;
 							y = Math.ceil(y);
 							Margine();
-							z = z+1;
+							z = z + 1;
 						} else if (sstores.equals("hk")) {
 
 							china = (nnum1 - 1) * 3 + 12;
@@ -390,7 +390,7 @@ class MyFrame extends JFrame {
 							y = (china * .15) + china;
 							y = Math.ceil(y);
 							Margine();
-							z = z+1;
+							z = z + 1;
 						}
 					} else {
 						if (sstores.equals("us")) {
@@ -428,13 +428,13 @@ class MyFrame extends JFrame {
 							y = (nnum1 - 1) * 3 + 15;
 							y = Math.ceil(y);
 							Margine();
-							z = z+1;
+							z = z + 1;
 						} else if (sstores.equals("uk")) {
 
 							y = (nnum1 - 1) * 3 + 15 + 5;
 							y = Math.ceil(y);
 							Margine();
-							z = z+1;
+							z = z + 1;
 						} else if (sstores.equals("hk")) {
 
 							china = (nnum1 - 1) * 3 + 15;
@@ -442,7 +442,7 @@ class MyFrame extends JFrame {
 							y = (china * .15) + china;
 							y = Math.ceil(y);
 							Margine();
-							z = z+1;
+							z = z + 1;
 						}
 					} else {
 
@@ -502,15 +502,15 @@ class MyFrame extends JFrame {
 
 			double ttlength = Double.parseDouble(text2);
 			ttlength = Math.ceil(ttlength);
-			
+
 			String text3 = tbredth.getText();
 			double ttbredth = Double.parseDouble(text3);
 			ttbredth = Math.ceil(ttbredth);
-			
+
 			String text4 = theight.getText();
 			double ttheight = Double.parseDouble(text4);
 			ttheight = Math.ceil(ttheight);
-			
+
 			if (t.getSource() == sub2) {
 				v = ttlength * ttbredth * ttheight / 166;
 				v = Math.ceil(v);
@@ -523,9 +523,7 @@ class MyFrame extends JFrame {
 
 				res2.setText(f);
 			}
-
 		}
-
 	};
 
 //kg to pounds	

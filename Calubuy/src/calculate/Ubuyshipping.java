@@ -354,7 +354,7 @@ class MyFrame extends JFrame {
 		res4 = new JLabel("");
 		res4.setFont(new Font("Arial", Font.PLAIN, 11));
 		res4.setSize(500, 25);
-		res4.setLocation(475, 515);
+		res4.setLocation(550, 515);
 		c.add(res4);
 
 		setVisible(true);
@@ -765,7 +765,7 @@ class MyFrame extends JFrame {
 					if (f < ttdwei) {
 						j = ttamz * .05;
 						j = j + 50;
-						res4.setText("New Weight(Pounds)" + f + ",Add extra " + j + " product price in shipping price");
+						res4.setText("New Weight(Pounds)" + f + ",Add extra $" + j + " in shipping price");
 
 					} else {
 						res4.setText("Weight(Pounds)" + ttdwei);
@@ -776,7 +776,7 @@ class MyFrame extends JFrame {
 					if (f < ttdwei) {
 						j = ttamz * .06;
 						j = j + 50;
-						res4.setText("New Weight(Pounds)" + f + ",Add extra " + j + " product price in shipping price");
+						res4.setText("New Weight(Pounds)" + f + ",Add extra $" + j + " in shipping price");
 
 					} else {
 						res4.setText("Weight(Pounds)" + ttdwei);
@@ -787,7 +787,7 @@ class MyFrame extends JFrame {
 					if (f < ttdwei) {
 						j = ttamz * .06;
 						j = j + 100;
-						res4.setText("New Weight(Pounds)" + f + ",Add extra " + j + " product price in shipping price");
+						res4.setText("New Weight(Pounds)" + f + ",Add extra $" + j + " in shipping price");
 
 					} else {
 						res4.setText("Weight(Pounds)" + ttdwei);

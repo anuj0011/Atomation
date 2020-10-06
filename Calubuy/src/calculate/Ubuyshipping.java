@@ -27,6 +27,14 @@ class MyFrame extends JFrame {
 	private JButton reset;
 	private JLabel res;
 
+	private String nonprimes[] = { "yes", "no" };
+
+	private String countrys[] = { "kuwait", "uae", "saudi", "oman", "bahrain", "qatar", "OTHER" };
+
+	private String str[] = { "us", "uk", "hk" };
+
+	private String ship[] = { "5-9 days", "3-6 days" };
+
 // inches to pounds
 
 	private JLabel title2;
@@ -61,22 +69,56 @@ class MyFrame extends JFrame {
 	private JButton sub4;
 	private JButton reset4;
 	private JLabel res4;
+
+// Price Calculation
+
+	private JLabel title5;
+	private JLabel pric;
+	private JTextField tpric;
+	private JLabel st;
+	private JComboBox tst;
+	private JLabel que;
+	private JComboBox tque;
+	private JButton sub5;
+	private JButton reset5;
+	private JLabel res5;
+
+	private String sts[] = { "US", "UK", "HK", "Ebay/Walmart" };
+	private String avail[] = { "Yes", "No" };
+
+// Customs calculation
+
+	private JLabel title6;
+	private JLabel price;
+	private JTextField tprice;
+	private JLabel shipp;
+	private JTextField tshipp;
+	private JLabel cntry;
+	private JComboBox tcntry;
+	private JButton sub6;
+	private JButton reset6;
+	private JLabel res6;
+
+	private String cntrys[] = { "Kuwait", "Qatar", "Saudi Arabia", "UAE", "Bahrain", "Egypt", "Oman", "Turkey",
+			"Singapore", "Australia", "Malaysia", "Russia", "Brazil", "SouthAfrica", "Morocco", "Lebanon", "Jordan",
+			"NewZealand", "India", "Chile", "USA", "Argentina", "Austria", "Italy", "Belgium", "Philippines", "Germany",
+			"Japan", "Mexico", "Netherlands", "Colombia", "Indonesia", "Spain", "Switzerland", "CzechRepublic",
+			"Denmark", "Norway", "Poland", "Portugal", "France", "Ireland", "Canada", "UK", "Taiwan", "Vietnam",
+			"SouthKorea", "Israel", "Sweden", "Thailand", "Ukraine", "HongKong", "China", "Finland", "Iceland",
+			"Maldives", "Peru", "Hungary", "Iran", "Algeria", "Angola", "Bangladesh", "Belarus", "Cambodia", "Cameroon",
+			"CostaRica", "CotedIvoire", "DominicanRepublic", "Ecuador", "ElSalvador", "Ethiopia", "Georgia", "Ghana",
+			"Greece", "Guatemala", "Kazakhstan", "Kenya", "Madagascar", "Mauritius", "Mozambique", "Myanmar", "Nepal",
+			"Nicaragua", "Nigeria", "Pakistan", "Panama", "Paraguay", "PuertoRico", "Romania", "Senegal", "Slovakia",
+			"SriLanka", "Tanzania", "Tunisia", "Uganda", "Uzbekistan", "Venezuela", "Zambia", "Zimbabwe" };
+
 //note	
 	private JTextArea tout;
-
-	private String nonprimes[] = { "yes", "no" };
-
-	private String countrys[] = { "kuwait", "uae", "saudi", "oman", "bahrain", "qatar", "OTHER" };
-
-	private String str[] = { "us", "uk", "hk" };
-
-	private String ship[] = { "5-9 days", "3-6 days" };
 
 	// constructor, to initialize the components
 	// with default values.
 	public MyFrame() {
 		setTitle("UBUY TOOLS");
-		setBounds(300, 90, 900, 600);
+		setBounds(300, 90, 1200, 600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(true);
 
@@ -187,7 +229,7 @@ class MyFrame extends JFrame {
 
 // inches to pounds
 
-		title2 = new JLabel("Inches to Pounds:");
+		title2 = new JLabel("INCHES TO POUNDS:");
 		title2.setFont(new Font("Arial", Font.PLAIN, 20));
 		title2.setSize(300, 20);
 		title2.setLocation(550, 20);
@@ -253,7 +295,7 @@ class MyFrame extends JFrame {
 
 // kg to pounds
 
-		title3 = new JLabel("Kg to Pounds:");
+		title3 = new JLabel("KG TO POUNDS:");
 		title3.setFont(new Font("Arial", Font.PLAIN, 20));
 		title3.setSize(300, 25);
 		title3.setLocation(550, 180);
@@ -295,7 +337,7 @@ class MyFrame extends JFrame {
 
 // operation analysis
 
-		title4 = new JLabel("Operation Analysis:");
+		title4 = new JLabel("OPERATION ANALYSIS:");
 		title4.setFont(new Font("Arial", Font.PLAIN, 20));
 		title4.setSize(300, 25);
 		title4.setLocation(550, 330);
@@ -359,6 +401,138 @@ class MyFrame extends JFrame {
 
 		setVisible(true);
 
+// Price calculator
+
+		title5 = new JLabel("PRICE FINDER:");
+		title5.setFont(new Font("Arial", Font.PLAIN, 20));
+		title5.setSize(300, 30);
+		title5.setLocation(925, 20);
+		c.add(title5);
+
+		pric = new JLabel("Amazon Price");
+		pric.setFont(new Font("Arial", Font.PLAIN, 18));
+		pric.setSize(200, 25);
+		pric.setLocation(925, 60);
+		c.add(pric);
+
+		tpric = new JTextField();
+		tpric.setFont(new Font("Arial", Font.PLAIN, 15));
+		tpric.setSize(80, 25);
+		tpric.setLocation(1050, 60);
+		c.add(tpric);
+
+		st = new JLabel("Store");
+		st.setFont(new Font("Arial", Font.PLAIN, 18));
+		st.setSize(250, 25);
+		st.setLocation(925, 100);
+		c.add(st);
+
+		tst = new JComboBox(sts);
+		tst.setFont(new Font("Arial", Font.PLAIN, 15));
+		tst.setSize(125, 25);
+		tst.setLocation(1050, 100);
+		c.add(tst);
+
+		que = new JLabel("Shipping/Dimension/Weight Available?");
+		que.setFont(new Font("Arial", Font.PLAIN, 15));
+		que.setSize(300, 25);
+		que.setLocation(925, 140);
+		c.add(que);
+
+		tque = new JComboBox(avail);
+		tque.setFont(new Font("Arial", Font.PLAIN, 15));
+		tque.setSize(125, 25);
+		tque.setLocation(1050, 165);
+		c.add(tque);
+
+		sub5 = new JButton("Submit");
+		sub5.setFont(new Font("Arial", Font.PLAIN, 15));
+		sub5.setSize(90, 20);
+		sub5.setLocation(950, 205);
+		sub5.addActionListener(b5Event);
+		c.add(sub5);
+
+		reset5 = new JButton("Reset");
+		reset5.setFont(new Font("Arial", Font.PLAIN, 15));
+		reset5.setSize(90, 20);
+		reset5.setLocation(1050, 205);
+		reset5.addActionListener(b5Event);
+		c.add(reset5);
+
+		res5 = new JLabel("");
+		res5.setFont(new Font("Arial", Font.PLAIN, 20));
+		res5.setSize(500, 25);
+		res5.setLocation(925, 240);
+		c.add(res5);
+
+		setVisible(true);
+
+// Customs
+
+		title6 = new JLabel("CUSTOMS FINDER:");
+		title6.setFont(new Font("Arial", Font.PLAIN, 20));
+		title6.setSize(300, 30);
+		title6.setLocation(925, 280);
+		c.add(title6);
+
+		price = new JLabel("Ubuy Price");
+		price.setFont(new Font("Arial", Font.PLAIN, 18));
+		price.setSize(200, 25);
+		price.setLocation(925, 320);
+		c.add(price);
+
+		tprice = new JTextField();
+		tprice.setFont(new Font("Arial", Font.PLAIN, 15));
+		tprice.setSize(80, 25);
+		tprice.setLocation(1050, 320);
+		c.add(tprice);
+
+		shipp = new JLabel("Shipping");
+		shipp.setFont(new Font("Arial", Font.PLAIN, 18));
+		shipp.setSize(200, 25);
+		shipp.setLocation(925, 360);
+		c.add(shipp);
+
+		tshipp = new JTextField();
+		tshipp.setFont(new Font("Arial", Font.PLAIN, 15));
+		tshipp.setSize(80, 25);
+		tshipp.setLocation(1050, 360);
+		c.add(tshipp);
+
+		cntry = new JLabel("Country");
+		cntry.setFont(new Font("Arial", Font.PLAIN, 18));
+		cntry.setSize(250, 25);
+		cntry.setLocation(925, 400);
+		c.add(cntry);
+
+		tcntry = new JComboBox(cntrys);
+		tcntry.setFont(new Font("Arial", Font.PLAIN, 15));
+		tcntry.setSize(125, 25);
+		tcntry.setLocation(1050, 400);
+		c.add(tcntry);
+
+		sub6 = new JButton("Submit");
+		sub6.setFont(new Font("Arial", Font.PLAIN, 15));
+		sub6.setSize(90, 20);
+		sub6.setLocation(950, 440);
+		sub6.addActionListener(b5Event);
+		c.add(sub6);
+
+		reset6 = new JButton("Reset");
+		reset6.setFont(new Font("Arial", Font.PLAIN, 15));
+		reset6.setSize(90, 20);
+		reset6.setLocation(1050, 440);
+		reset6.addActionListener(b5Event);
+		c.add(reset6);
+
+		res6 = new JLabel("");
+		res6.setFont(new Font("Arial", Font.PLAIN, 20));
+		res6.setSize(500, 25);
+		res6.setLocation(925, 480);
+		c.add(res6);
+
+		setVisible(true);
+
 // note
 
 		tout = new JTextArea(
@@ -384,6 +558,7 @@ class MyFrame extends JFrame {
 	double g;
 	double f;
 	double j;
+	double a;
 
 	ActionListener b1Event = new ActionListener() {
 
@@ -808,6 +983,76 @@ class MyFrame extends JFrame {
 
 	};
 
+// Price Calculator
+
+	ActionListener b5Event = new ActionListener() {
+
+		public void actionPerformed(ActionEvent v) {
+			double margine = .18;
+			int fixed = 5;
+			String text9 = tpric.getText();
+			double ttpric = Double.parseDouble(text9);
+			String sst = (String) tst.getSelectedItem();
+			String qque = (String) tque.getSelectedItem();
+
+			double ukttpric = ttpric * 1.5; // converting euro to usd for uk
+			double ukmargine = .18;
+			int ukfixed = 5;
+
+			if (v.getSource() == sub5) {
+
+				if (sst.equals("US")) {
+					if (qque.equals("Yes")) {
+						a = (ttpric * margine) + ttpric + fixed;
+					} else {
+						if (ttpric <= 175) {
+
+							a = (ttpric * margine) + ttpric + 12 + fixed;
+
+						} else {
+							a = (ttpric + (ttpric / 2) + 11) * margine + ttpric + fixed;
+						}
+					}
+
+				} else if (sst.equals("Ebay/Walmart")) {
+
+					if (qque.equals("Yes")) {
+						a = (ttpric * .22) + ttpric + 3;
+					} else {
+
+						a = (ttpric * .55) + ttpric + 3;
+					}
+				} else if (sst.equals("HK")) {
+
+					a = (ttpric * .16) + ttpric + 10;
+
+				} else if (sst.equals("UK")) {
+
+					if (qque.equals("Yes")) {
+						a = (ukttpric * ukmargine) + ukttpric + ukfixed;
+					} else {
+						if (ukttpric <= 175) {
+
+							a = (ukttpric * ukmargine) + ukttpric + 12 + ukfixed;
+
+						} else {
+							a = (ukttpric + (ukttpric / 2) + 11) * ukmargine + ukttpric + ukfixed;
+						}
+					}
+				}
+
+				res5.setText("Ubuy Price ($)" + a);
+			} else if (v.getSource() == reset5) {
+				String d = "";
+				tpric.setText(d);
+				tst.setSelectedIndex(0);
+				tque.setSelectedIndex(0);
+				res5.setText(d);
+			}
+
+		}
+	};
+
 //margine method to call 
 
 	public void Margine() {
@@ -871,7 +1116,6 @@ class MyFrame extends JFrame {
 
 	}
 
-// Driver Code 
 }
 
 public class Ubuyshipping {

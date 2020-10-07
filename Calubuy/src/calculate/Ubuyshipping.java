@@ -8,7 +8,9 @@ class MyFrame extends JFrame {
 
 	// Components of the Form
 	private Container c;
-//main shipping	
+
+//shipping	Finder
+
 	private JLabel title;
 	private JLabel weight;
 	private JTextField num1;
@@ -70,7 +72,7 @@ class MyFrame extends JFrame {
 	private JButton reset4;
 	private JLabel res4;
 
-// Price Calculation
+// Price Finder
 
 	private JLabel title5;
 	private JLabel pric;
@@ -86,7 +88,7 @@ class MyFrame extends JFrame {
 	private String sts[] = { "US", "UK", "HK", "Ebay/Walmart" };
 	private String avail[] = { "Yes", "No" };
 
-// Customs calculation
+// Customs Finder
 
 	private JLabel title6;
 	private JLabel price;
@@ -125,7 +127,7 @@ class MyFrame extends JFrame {
 		c = getContentPane();
 		c.setLayout(null);
 
-//main shipping	
+// Shipping	Finder
 
 		title = new JLabel("SHIPPING FINDER:");
 		title.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -401,7 +403,7 @@ class MyFrame extends JFrame {
 
 		setVisible(true);
 
-// Price calculator
+// Price Finder
 
 		title5 = new JLabel("PRICE FINDER:");
 		title5.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -467,7 +469,7 @@ class MyFrame extends JFrame {
 
 		setVisible(true);
 
-// Customs
+// Customs Finder
 
 		title6 = new JLabel("CUSTOMS FINDER:");
 		title6.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -475,7 +477,7 @@ class MyFrame extends JFrame {
 		title6.setLocation(925, 280);
 		c.add(title6);
 
-		price = new JLabel("Ubuy Price");
+		price = new JLabel("Price($)");
 		price.setFont(new Font("Arial", Font.PLAIN, 18));
 		price.setSize(200, 25);
 		price.setLocation(925, 320);
@@ -487,7 +489,7 @@ class MyFrame extends JFrame {
 		tprice.setLocation(1050, 320);
 		c.add(tprice);
 
-		shipp = new JLabel("Shipping");
+		shipp = new JLabel("Shipping($)");
 		shipp.setFont(new Font("Arial", Font.PLAIN, 18));
 		shipp.setSize(200, 25);
 		shipp.setLocation(925, 360);
@@ -515,14 +517,14 @@ class MyFrame extends JFrame {
 		sub6.setFont(new Font("Arial", Font.PLAIN, 15));
 		sub6.setSize(90, 20);
 		sub6.setLocation(950, 440);
-		sub6.addActionListener(b5Event);
+		sub6.addActionListener(b6Event);
 		c.add(sub6);
 
 		reset6 = new JButton("Reset");
 		reset6.setFont(new Font("Arial", Font.PLAIN, 15));
 		reset6.setSize(90, 20);
 		reset6.setLocation(1050, 440);
-		reset6.addActionListener(b5Event);
+		reset6.addActionListener(b6Event);
 		c.add(reset6);
 
 		res6 = new JLabel("");
@@ -559,6 +561,8 @@ class MyFrame extends JFrame {
 	double f;
 	double j;
 	double a;
+	double cust;
+// Shipping Finder
 
 	ActionListener b1Event = new ActionListener() {
 
@@ -750,7 +754,7 @@ class MyFrame extends JFrame {
 		}
 	};
 
-//inches to pounds
+// inches to pounds
 
 	ActionListener b2Event = new ActionListener() {
 
@@ -784,7 +788,7 @@ class MyFrame extends JFrame {
 		}
 	};
 
-//kg to pounds	
+// kg to pounds	
 
 	ActionListener b3Event = new ActionListener() {
 
@@ -807,7 +811,7 @@ class MyFrame extends JFrame {
 
 	};
 
-//quality analysis
+// quality analysis
 
 	ActionListener b4Event = new ActionListener() {
 
@@ -983,7 +987,7 @@ class MyFrame extends JFrame {
 
 	};
 
-// Price Calculator
+// Price Finder
 
 	ActionListener b5Event = new ActionListener() {
 
@@ -1053,6 +1057,444 @@ class MyFrame extends JFrame {
 		}
 	};
 
+// Custom Finder
+
+	ActionListener b6Event = new ActionListener() {
+
+		public void actionPerformed(ActionEvent j) {
+			String text10 = tprice.getText();
+			double ttprice = Double.parseDouble(text10);
+			String text11 = tshipp.getText();
+			double ttshipp = Double.parseDouble(text11);
+			String ttcntry = (String) tcntry.getSelectedItem();
+
+			double tot = ttprice + ttshipp;
+
+			if (j.getSource() == sub6) {
+				if (ttcntry.equals("Kuwait")) {
+
+					cust = tot * .08 + 10;
+
+				}
+
+				else if (ttcntry.equals("Qatar")) {
+
+					cust = tot * .08 + 7;
+
+				}
+
+				else if (ttcntry.equals("Saudi Arabia")) {
+
+					cust = tot * .20;
+
+				}
+
+				else if (ttcntry.equals("UAE")) {
+
+					cust = tot * .10;
+
+				}
+
+				else if (ttcntry.equals("Bahrain")) {
+
+					cust = tot * .06;
+
+				}
+
+				else if (ttcntry.equals("Egypt")) {
+
+					cust = tot * .60 + 17;
+
+				}
+
+				else if (ttcntry.equals("Oman")) {
+
+					cust = tot * .08;
+
+				}
+
+				else if (ttcntry.equals("Turkey")) {
+
+					cust = tot * .20;
+
+				}
+
+				else if (ttcntry.equals("Singapore")) {
+
+					cust = tot * .08;
+
+				}
+
+				else if (ttcntry.equals("Australia")) {
+
+					cust = tot * .14;
+
+				} else if (ttcntry.equals("Malaysia")) {
+
+					cust = tot * .20;
+
+				} else if (ttcntry.equals("Russia")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Brazil")) {
+
+					cust = tot * .22;
+
+				} else if (ttcntry.equals("SouthAfrica")) {
+
+					cust = tot * .25;
+
+				} else if (ttcntry.equals("Morocco")) {
+
+					cust = tot * .30;
+
+				} else if (ttcntry.equals("Lebanon")) {
+
+					cust = tot * .17 + 3.5;
+
+				} else if (ttcntry.equals("Jordan")) {
+
+					cust = tot * .30;
+
+				} else if (ttcntry.equals("NewZealand")) {
+
+					cust = tot * .18;
+
+				} else if (ttcntry.equals("India")) {
+
+					cust = tot * .40;
+
+				} else if (ttcntry.equals("Chile")) {
+
+					cust = tot * .18;
+
+				} else if (ttcntry.equals("USA")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Argentina")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Austria")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Italy")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Belgium")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Philippines")) {
+
+					cust = tot * .10;
+
+				} else if (ttcntry.equals("Germany")) {
+
+					cust = tot * .13;
+
+				} else if (ttcntry.equals("Japan")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Mexico")) {
+
+					cust = tot * .10;
+
+				} else if (ttcntry.equals("Netherlands")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Colombia")) {
+
+					cust = tot * .24;
+
+				} else if (ttcntry.equals("Indonesia")) {
+
+					cust = tot * .20;
+
+				} else if (ttcntry.equals("Spain")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Switzerland")) {
+
+					cust = tot * .09;
+
+				} else if (ttcntry.equals("CzechRepublic")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Denmark")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Norway")) {
+
+					cust = tot * .28;
+
+				} else if (ttcntry.equals("Poland")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Portugal")) {
+
+					cust = tot * .10 + 14;
+
+				} else if (ttcntry.equals("France")) {
+
+					cust = tot * .20;
+
+				} else if (ttcntry.equals("Ireland")) {
+
+					cust = tot * .14;
+
+				} else if (ttcntry.equals("Canada")) {
+
+					cust = tot * .10;
+
+				} else if (ttcntry.equals("UK")) {
+
+					cust = tot * .20;
+
+				} else if (ttcntry.equals("Taiwan")) {
+
+					cust = tot * .10;
+
+				} else if (ttcntry.equals("Vietnam")) {
+
+					cust = tot * .20;
+
+				} else if (ttcntry.equals("SouthKorea")) {
+
+					cust = tot * .10;
+
+				} else if (ttcntry.equals("Israel")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Sweden")) {
+
+					cust = tot * .25;
+
+				} else if (ttcntry.equals("Thailand")) {
+
+					cust = tot * .30;
+
+				} else if (ttcntry.equals("Ukraine")) {
+
+					cust = tot * .15;
+
+				} else if (ttcntry.equals("HongKong")) {
+
+					cust = tot * .03;
+
+				} else if (ttcntry.equals("China")) {
+
+					cust = tot * .15;
+
+				} else if (ttcntry.equals("Finland")) {
+
+					cust = tot * .15;
+
+				} else if (ttcntry.equals("Iceland")) {
+
+					cust = tot * .15;
+
+				} else if (ttcntry.equals("Maldives")) {
+
+					cust = tot * .20;
+
+				} else if (ttcntry.equals("Peru")) {
+
+					cust = tot * .25;
+
+				} else if (ttcntry.equals("Hungary")) {
+
+					cust = tot * .35;
+
+				} else if (ttcntry.equals("Iran")) {
+
+					cust = tot * .100;
+
+				} else if (ttcntry.equals("Algeria")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Angola")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Bangladesh")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Belarus")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Cambodia")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Cameroon")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("CostaRica")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("CotedIvoire")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("DominicanRepublic")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Ecuador")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("ElSalvador")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Ethiopia")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Georgia")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Ghana")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Greece")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Guatemala")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Kazakhstan")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Kenya")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Madagascar")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Mauritius")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Mozambique")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Myanmar")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Nepal")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Nicaragua")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Nigeria")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Pakistan")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Panama")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Paraguay")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("PuertoRico")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Romania")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Senegal")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Slovakia")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("SriLanka")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Tanzania")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Tunisia")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Uganda")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Uzbekistan")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Venezuela")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Zambia")) {
+
+					cust = tot * .08;
+
+				} else if (ttcntry.equals("Zimbabwe")) {
+
+					cust = tot * .08;
+
+				}
+
+				res6.setText("Custom Charges($)" + cust);
+
+			} else if (j.getSource() == reset6) {
+				String h = "";
+				tprice.setText(h);
+				tshipp.setText(h);
+				tcntry.setSelectedIndex(0);
+				res6.setText(h);
+			}
+
+		}
+	};
 //margine method to call 
 
 	public void Margine() {

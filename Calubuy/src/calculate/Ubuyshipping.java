@@ -9,7 +9,7 @@ class MyFrame extends JFrame {
 	// Components of the Form
 	private Container c;
 
-//shipping	Finder
+//shipping  Finder
 
 	private JLabel title;
 	private JLabel weight;

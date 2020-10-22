@@ -559,7 +559,7 @@ class MyFrame extends JFrame {
 	double v;
 	double g;
 	double f;
-	double j;
+	double j = 0;
 	double a;
 	double cust;
 // Shipping Finder
@@ -580,19 +580,19 @@ class MyFrame extends JFrame {
 					if (sshippingtype.equals("5-9 days")) {
 						if (sstores.equals("us")) {
 
-							y = (nnum1 - 1) * 2.5 + 9;
+							y = (nnum1 - 1) * 2.5 + 9 + j; // value of "j" coming from quality analysis method
 							y = Math.ceil(y);
 							Margine();
 							z = z + 1;
 						} else if (sstores.equals("uk")) {
 
-							y = (nnum1 - 1) * 2.5 + 9 + 5;
+							y = (nnum1 - 1) * 2.5 + 9 + 5 + j;
 							y = Math.ceil(y);
 							Margine();
 							z = z + 1;
 						} else if (sstores.equals("hk")) {
 
-							china = (nnum1 - 1) * 2.5 + 9;
+							china = (nnum1 - 1) * 2.5 + 9 + j;
 							china = Math.ceil(china);
 							y = (china * .15) + china;
 							y = Math.ceil(y);
@@ -602,14 +602,14 @@ class MyFrame extends JFrame {
 					} else {
 						if (sstores.equals("us")) {
 
-							y = (nnum1 - 1) * 2.5 + 9;
+							y = (nnum1 - 1) * 2.5 + 9 + j;
 							y = Math.ceil(y);
 							Margine();
 							z = (z * .05) + z + 3;
 							z = Math.ceil(z);
 						} else if (sstores.equals("uk")) {
 
-							y = (nnum1 - 1) * 2.5 + 9 + 5;
+							y = (nnum1 - 1) * 2.5 + 9 + 5 + j;
 							y = Math.ceil(y);
 							Margine();
 							z = (z * .05) + z + 3;
@@ -617,7 +617,7 @@ class MyFrame extends JFrame {
 
 						} else if (sstores.equals("hk")) {
 
-							china = (nnum1 - 1) * 2.5 + 9;
+							china = (nnum1 - 1) * 2.5 + 9 + j;
 							china = Math.ceil(china);
 							y = (china * .15) + china;
 							y = Math.ceil(y);
@@ -635,19 +635,19 @@ class MyFrame extends JFrame {
 					if (sshippingtype.equals("5-9 days")) {
 						if (sstores.equals("us")) {
 
-							y = (nnum1 - 1) * 3 + 12;
+							y = (nnum1 - 1) * 3 + 12 + j;
 							y = Math.ceil(y);
 							Margine();
 							z = z + 1;
 						} else if (sstores.equals("uk")) {
 
-							y = (nnum1 - 1) * 3 + 12 + 5;
+							y = (nnum1 - 1) * 3 + 12 + 5 + j;
 							y = Math.ceil(y);
 							Margine();
 							z = z + 1;
 						} else if (sstores.equals("hk")) {
 
-							china = (nnum1 - 1) * 3 + 12;
+							china = (nnum1 - 1) * 3 + 12 + j;
 							china = Math.ceil(china);
 							y = (china * .15) + china;
 							y = Math.ceil(y);
@@ -657,21 +657,21 @@ class MyFrame extends JFrame {
 					} else {
 						if (sstores.equals("us")) {
 
-							y = (nnum1 - 1) * 3 + 12;
+							y = (nnum1 - 1) * 3 + 12 + j;
 							y = Math.ceil(y);
 							Margine();
 							z = (z * .15) + z + 5;
 							z = Math.ceil(z);
 						} else if (sstores.equals("uk")) {
 
-							y = (nnum1 - 1) * 3 + 12 + 5;
+							y = (nnum1 - 1) * 3 + 12 + 5 + j;
 							y = Math.ceil(y);
 							Margine();
 							z = (z * .15) + z + 5;
 							z = Math.ceil(z);
 						} else if (sstores.equals("hk")) {
 
-							china = (nnum1 - 1) * 3 + 12;
+							china = (nnum1 - 1) * 3 + 12 + j;
 							china = Math.ceil(china);
 							y = (china * .15) + china;
 							y = Math.ceil(y);
@@ -687,19 +687,19 @@ class MyFrame extends JFrame {
 					if (sshippingtype.equals("5-9 days")) {
 						if (sstores.equals("us")) {
 
-							y = (nnum1 - 1) * 3 + 15;
+							y = (nnum1 - 1) * 3 + 15 + j;
 							y = Math.ceil(y);
 							Margine();
 							z = z + 1;
 						} else if (sstores.equals("uk")) {
 
-							y = (nnum1 - 1) * 3 + 15 + 5;
+							y = (nnum1 - 1) * 3 + 15 + 5 + j;
 							y = Math.ceil(y);
 							Margine();
 							z = z + 1;
 						} else if (sstores.equals("hk")) {
 
-							china = (nnum1 - 1) * 3 + 15;
+							china = (nnum1 - 1) * 3 + 15 + j;
 							china = Math.ceil(china);
 							y = (china * .15) + china;
 							y = Math.ceil(y);
@@ -710,21 +710,21 @@ class MyFrame extends JFrame {
 
 						if (sstores.equals("us")) {
 
-							y = (nnum1 - 1) * 3 + 15;
+							y = (nnum1 - 1) * 3 + 15 + j;
 							y = Math.ceil(y);
 							Margine();
 							z = (z * .25) + z + 5;
 							z = Math.ceil(z);
 						} else if (sstores.equals("uk")) {
 
-							y = (nnum1 - 1) * 3 + 15 + 5;
+							y = (nnum1 - 1) * 3 + 15 + 5 + j;
 							y = Math.ceil(y);
 							Margine();
 							z = (z * .25) + z + 5;
 							z = Math.ceil(z);
 						} else if (sstores.equals("hk")) {
 
-							china = (nnum1 - 1) * 3 + 15;
+							china = (nnum1 - 1) * 3 + 15 + j;
 							china = Math.ceil(china);
 							y = (china * .15) + china;
 							y = Math.ceil(y);
@@ -845,7 +845,8 @@ class MyFrame extends JFrame {
 					if (f < ttdwei) {
 
 						f = f + 3;
-						res4.setText("New Weight(Pounds)" + f + ",Add extra $10 in shipping price");
+						j = 10;
+						res4.setText("New Weight(Pounds)" + f);
 
 					} else {
 						res4.setText("Weight(Pounds)" + ttdwei);
@@ -856,7 +857,8 @@ class MyFrame extends JFrame {
 					if (f < ttdwei) {
 
 						f = f + 5;
-						res4.setText("New Weight(Pounds)" + f + ",Add extra $15 in shipping price");
+						j = 15;
+						res4.setText("New Weight(Pounds)" + f);
 
 					} else {
 						res4.setText("Weight(Pounds)" + ttdwei);
@@ -867,7 +869,8 @@ class MyFrame extends JFrame {
 					if (f < ttdwei) {
 
 						f = f + 6;
-						res4.setText("New Weight(Pounds)" + f + ",Add extra $20 in shipping price");
+						j = 20;
+						res4.setText("New Weight(Pounds)" + f);
 
 					} else {
 						res4.setText("Weight(Pounds)" + ttdwei);
@@ -878,7 +881,8 @@ class MyFrame extends JFrame {
 					if (f < ttdwei) {
 
 						f = f + 10;
-						res4.setText("New Weight(Pounds)" + f + ",Add extra $25 in shipping price");
+						j = 25;
+						res4.setText("New Weight(Pounds)" + f);
 
 					} else {
 						res4.setText("Weight(Pounds)" + ttdwei);
@@ -889,7 +893,8 @@ class MyFrame extends JFrame {
 					if (f < ttdwei) {
 
 						f = f + 13;
-						res4.setText("New Weight(Pounds)" + f + ",Add extra $30 in shipping price");
+						j = 30;
+						res4.setText("New Weight(Pounds)" + f);
 
 					} else {
 						res4.setText("Weight(Pounds)" + ttdwei);
@@ -900,7 +905,8 @@ class MyFrame extends JFrame {
 					if (f < ttdwei) {
 
 						f = f + 16;
-						res4.setText("New Weight(Pounds)" + f + ",Add extra $30 in shipping price");
+						j = 30;
+						res4.setText("New Weight(Pounds)" + f);
 
 					} else {
 						res4.setText("Weight(Pounds)" + ttdwei);
@@ -911,7 +917,8 @@ class MyFrame extends JFrame {
 					if (f < ttdwei) {
 
 						f = f + 20;
-						res4.setText("New Weight(Pounds)" + f + ",Add extra $30 in shipping price");
+						j = 30;
+						res4.setText("New Weight(Pounds)" + f);
 
 					} else {
 						res4.setText("Weight(Pounds)" + ttdwei);
@@ -922,7 +929,8 @@ class MyFrame extends JFrame {
 					if (f < ttdwei) {
 
 						f = f + 30;
-						res4.setText("New Weight(Pounds)" + f + ",Add extra $30 in shipping price");
+						j = 30;
+						res4.setText("New Weight(Pounds)" + f);
 
 					} else {
 						res4.setText("Weight(Pounds)" + ttdwei);
@@ -933,7 +941,8 @@ class MyFrame extends JFrame {
 					if (f < ttdwei) {
 
 						f = f + 25;
-						res4.setText("New Weight(Pounds)" + f + ",Add extra $50 in shipping price");
+						j = 50;
+						res4.setText("New Weight(Pounds)" + f);
 
 					} else {
 						res4.setText("Weight(Pounds)" + ttdwei);
@@ -944,7 +953,7 @@ class MyFrame extends JFrame {
 					if (f < ttdwei) {
 						j = ttamz * .05;
 						j = j + 50;
-						res4.setText("New Weight(Pounds)" + f + ",Add extra $" + j + " in shipping price");
+						res4.setText("New Weight(Pounds)" + f);
 
 					} else {
 						res4.setText("Weight(Pounds)" + ttdwei);
@@ -955,7 +964,7 @@ class MyFrame extends JFrame {
 					if (f < ttdwei) {
 						j = ttamz * .06;
 						j = j + 50;
-						res4.setText("New Weight(Pounds)" + f + ",Add extra $" + j + " in shipping price");
+						res4.setText("New Weight(Pounds)" + f);
 
 					} else {
 						res4.setText("Weight(Pounds)" + ttdwei);
@@ -966,7 +975,7 @@ class MyFrame extends JFrame {
 					if (f < ttdwei) {
 						j = ttamz * .06;
 						j = j + 100;
-						res4.setText("New Weight(Pounds)" + f + ",Add extra $" + j + " in shipping price");
+						res4.setText("New Weight(Pounds)" + f);
 
 					} else {
 						res4.setText("Weight(Pounds)" + ttdwei);
@@ -981,6 +990,7 @@ class MyFrame extends JFrame {
 				twei.setText(m);
 				tamz.setText(m);
 				res4.setText(m);
+				j = 0;
 			}
 
 		}

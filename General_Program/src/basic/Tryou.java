@@ -1,18 +1,21 @@
 package basic;
 
+import java.util.Scanner;
+
 public class Tryou {
 
 	public static void main(String[] args) {
-		int palin = 121;
-		String z = String.valueOf(palin);
-		String ispalin = new StringBuffer(z).reverse().toString();
-		int b = Integer.parseInt(ispalin.toString());
+		int year;
+		System.out.println("enter year");
+		Scanner sc = new Scanner(System.in);
+		year = sc.nextInt();
 		
-		if(palin == b) {
-			System.out.println("palindrom");
+		if(year%4 == 0 && year%100 != 0 || year%400 == 0) {
+			System.out.println("leap year");
 		}
-		else {
-			System.out.println("not palindrome");
+		else
+		{
+			System.out.println("not a leap year");
 		}
 		
 	}

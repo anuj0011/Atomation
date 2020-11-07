@@ -10,6 +10,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import javax.activation.DataHandler;
+import javax.activation.FileDataSource;
 import javax.mail.Message;
 import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
@@ -42,7 +44,7 @@ public class Getjsondata {
 
 	public static void pricesave() throws IOException, InterruptedException {
 		System.setProperty("webdriver.chrome.driver",
-				"E:\\AUTOMATION\\chromedriver_win32\\chromedriver.exe");
+				"/home/anuj/chromedriver_linux64/chromedriver");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		((JavascriptExecutor) driver).executeScript("window.open()");
@@ -115,6 +117,21 @@ public class Getjsondata {
 							String url0 = (String) array.get(k);
 							driver.get(url0);
 							System.out.println(url0);
+							
+							
+							// to check if detail is still loading, proxy issue
+							if(k == 3) {
+							try {
+								driver.findElement(By.xpath("//h2[@id='product-name']")).getText();
+							}
+							catch(Exception e) {
+								
+								emailme(); // calling email method
+								
+								
+							}
+							}
+							
 						}
 						i += 29;
 
@@ -136,7 +153,52 @@ public class Getjsondata {
 			}
 		}
 	}
+	
+	
+	// TO GET MAIL THROUGH SMTP
+	public static void emailme() {
+		try {
+
+			final String username = "manayasam@gmail.com";
+			final String password = "omitit123";
+			Properties prop = new Properties();
+			prop.put("mail.smtp.auth", true);
+			prop.put("mail.smtp.starttls.enable", true);
+			prop.put("mail.smtp.host", "smtp.gmail.com");
+			prop.put("mail.smtp.port", "587");
+
+			Session session = Session.getInstance(prop, new javax.mail.Authenticator() {
+				protected PasswordAuthentication getPasswordAuthentication() {
+					return new PasswordAuthentication(username, password);
+				}
+			});
+
+			try {
+				Message message = new MimeMessage(session);
+				message.setFrom(new InternetAddress("manayasam@gmail.com"));
+				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("anuj.bansal@ubuy.co.in"));
+				message.setSubject("DETAIL PROXY ISSUE");
+				message.setText("DETAIL PROXY ISSUE");
+				Transport.send(message);
+
+
+			}
+
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		}
+
+		
 }
+
 
 // JSON (posting data) just for knowledge
 

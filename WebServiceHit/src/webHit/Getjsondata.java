@@ -36,7 +36,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Getjsondata {
 
 	public static WebDriver driver;
-
+	static String url0;
 	public static void main(String[] args)
 			throws IOException, JSONException, org.json.simple.parser.ParseException, InterruptedException {
 		pricesave();
@@ -114,7 +114,7 @@ public class Getjsondata {
 
 							int k = i + z;
 							driver.switchTo().window(tabs.get(z));
-							String url0 = (String) array.get(k);
+							url0 = (String) array.get(k);
 							driver.get(url0);
 							System.out.println(url0);
 							
@@ -127,6 +127,7 @@ public class Getjsondata {
 							catch(Exception e) {
 								
 								emailme(); // calling email method
+								System.out.println("Email Sent");
 								
 								
 							}
@@ -178,7 +179,8 @@ public class Getjsondata {
 				message.setFrom(new InternetAddress("manayasam@gmail.com"));
 				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("anuj.bansal@ubuy.co.in"));
 				message.setSubject("DETAIL PROXY ISSUE");
-				message.setText("DETAIL PROXY ISSUE");
+				message.setText("DETAIL TAKING TIME TO LOAD  " +url0); // sending url on which detail is slow
+
 				Transport.send(message);
 
 

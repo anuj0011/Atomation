@@ -36,15 +36,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Getjsondata {
 
 	public static WebDriver driver;
-	static String url0;
+	static String mailurl; // to send url with mail for slow detail
+
 	public static void main(String[] args)
 			throws IOException, JSONException, org.json.simple.parser.ParseException, InterruptedException {
 		pricesave();
 	}
 
 	public static void pricesave() throws IOException, InterruptedException {
-		System.setProperty("webdriver.chrome.driver",
-				"/home/anuj/chromedriver_linux64/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "/home/anuj/chromedriver_linux64/chromedriver");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		((JavascriptExecutor) driver).executeScript("window.open()");
@@ -114,25 +114,32 @@ public class Getjsondata {
 
 							int k = i + z;
 							driver.switchTo().window(tabs.get(z));
-							url0 = (String) array.get(k);
-							driver.get(url0);
-							System.out.println(url0);
-							
+							String url0 = (String) array.get(k);
+
 							
 							// to check if detail is still loading, proxy issue
-							if(k == 3) {
-							try {
-								driver.findElement(By.xpath("//h2[@id='product-name']")).getText();
+							if (z == 3) {
+								try {
+
+									String text = driver
+											.findElement(By.xpath(
+													"//*[@id='product-name' or contains(text(),'Don’t worry...')]"))
+											.getText();
+									System.out.println("LOADED");
+
+								} catch (Exception e) {
+									emailme(); // calling email method
+									System.out.println("Slow Detail Email Sent");
+									mailurl =  url0; // to send url with mail for slow detail
+								}
+
 							}
-							catch(Exception e) {
-								
-								emailme(); // calling email method
-								System.out.println("Email Sent");
-								
-								
-							}
-							}
+
 							
+							
+							driver.get(url0);
+							System.out.println(url0);
+
 						}
 						i += 29;
 
@@ -154,8 +161,7 @@ public class Getjsondata {
 			}
 		}
 	}
-	
-	
+
 	// TO GET MAIL THROUGH SMTP
 	public static void emailme() {
 		try {
@@ -179,10 +185,9 @@ public class Getjsondata {
 				message.setFrom(new InternetAddress("manayasam@gmail.com"));
 				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("anuj.bansal@ubuy.co.in"));
 				message.setSubject("DETAIL PROXY ISSUE");
-				message.setText("DETAIL TAKING TIME TO LOAD  " +url0); // sending url on which detail is slow
+				message.setText("DETAIL TAKING TIME TO LOAD  " + mailurl); // sending url also on which detail is slow
 
 				Transport.send(message);
-
 
 			}
 
@@ -196,11 +201,9 @@ public class Getjsondata {
 			e.printStackTrace();
 		}
 
-		}
+	}
 
-		
 }
-
 
 // JSON (posting data) just for knowledge
 

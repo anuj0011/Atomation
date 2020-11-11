@@ -128,9 +128,11 @@ public class Getjsondata {
 									System.out.println("LOADED");
 
 								} catch (Exception e) {
+									
+									mailurl = driver.getCurrentUrl(); // to send url with mail for slow detail
 									emailme(); // calling email method
 									System.out.println("Slow Detail Email Sent");
-									mailurl =  url0; // to send url with mail for slow detail
+									 
 								}
 
 							}

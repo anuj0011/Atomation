@@ -116,7 +116,6 @@ public class Getjsondata {
 							driver.switchTo().window(tabs.get(z));
 							String url0 = (String) array.get(k);
 
-							
 							// to check if detail is still loading, proxy issue
 							if (z == 3) {
 								try {
@@ -128,17 +127,20 @@ public class Getjsondata {
 									System.out.println("LOADED");
 
 								} catch (Exception e) {
-									
+
 									mailurl = driver.getCurrentUrl(); // to send url with mail for slow detail
-									emailme(); // calling email method
-									System.out.println("Slow Detail Email Sent");
-									 
+
+									// To skip the first mail with about:blank url
+									if (mailurl.contains("about:blank") == false) {
+										emailme(); // calling email method
+										System.out.println("Slow Detail Email Sent");
+									} else {
+										System.out.println("blank url");
+									}
 								}
 
 							}
 
-							
-							
 							driver.get(url0);
 							System.out.println(url0);
 

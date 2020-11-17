@@ -477,7 +477,7 @@ class MyFrame extends JFrame {
 		title6.setLocation(925, 280);
 		c.add(title6);
 
-		price = new JLabel("Price($)");
+		price = new JLabel("Price ");
 		price.setFont(new Font("Arial", Font.PLAIN, 18));
 		price.setSize(200, 25);
 		price.setLocation(925, 320);
@@ -489,7 +489,7 @@ class MyFrame extends JFrame {
 		tprice.setLocation(1050, 320);
 		c.add(tprice);
 
-		shipp = new JLabel("Shipping($)");
+		shipp = new JLabel("Shipping ");
 		shipp.setFont(new Font("Arial", Font.PLAIN, 18));
 		shipp.setSize(200, 25);
 		shipp.setLocation(925, 360);
@@ -1493,7 +1493,7 @@ class MyFrame extends JFrame {
 
 				}
 
-				res6.setText("Custom Charges($)" + cust);
+				res6.setText("Custom Charges " + cust);
 
 			} else if (j.getSource() == reset6) {
 				String h = "";

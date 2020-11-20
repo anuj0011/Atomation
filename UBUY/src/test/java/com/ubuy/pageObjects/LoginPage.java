@@ -14,7 +14,7 @@ public class LoginPage {
 	 */
 
 	WebDriver ldriver;
-// project rename
+// project rename 1
 	
 	// WebDriver rdriver is a parameter  And LoginPage is a class constructor
 	

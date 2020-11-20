@@ -122,7 +122,7 @@ public class Getjsondata {
 
 									String text = driver
 											.findElement(By.xpath(
-													"//*[@id='product-name' or contains(text(),'Don’t worry...')]"))
+													"//*[@id='product-name' or contains(text(),'Don’t worry...') or contains(@alt, 'not-available')]"))
 											.getText();
 									System.out.println("LOADED");
 
@@ -141,6 +141,7 @@ public class Getjsondata {
 
 							}
 
+							
 							driver.get(url0);
 							System.out.println(url0);
 

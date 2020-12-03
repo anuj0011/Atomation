@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -176,10 +178,11 @@ public class Webhit {
 	}
 
 	// TO GET MAIL OF THROUGH SMTP
-
 	public static void emailme() {
 
 		try {
+
+			temp(new File("C:/Users/my/AppData/Local/Temp")); // calling temp method to delete temp files
 
 			TakesScreenshot screenshot = (TakesScreenshot) driver;
 
@@ -216,6 +219,26 @@ public class Webhit {
 
 		catch (Exception e) {
 			System.out.println("Exception while taking screenshot " + e.getMessage());
+		}
+	}
+
+	// Method to Delete system temp files
+	public static void temp(File directoryPath) throws IOException {
+		if (directoryPath != null && directoryPath.exists()) {
+
+			if (directoryPath.isDirectory()) {
+				File[] fileList = directoryPath.listFiles();
+				for (int i = 0; i < fileList.length; i++) {
+					temp(fileList[i]);
+				}
+				if (!"Temp".equalsIgnoreCase(directoryPath.getName())) {
+					System.out.println("folder   delete " + directoryPath.getAbsolutePath());
+					directoryPath.delete();
+				}
+			} else {
+				System.out.println("file   delete " + directoryPath.getAbsolutePath());
+				directoryPath.delete();
+			}
 		}
 	}
 

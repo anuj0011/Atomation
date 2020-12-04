@@ -55,37 +55,12 @@ public class Webhit {
 		System.setProperty("webdriver.chrome.driver", "/home/anuj/chromedriver_linux64/chromedriver");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
+		
+		// To open multiple browser tabs
+		for(int i = 0; i < 30; i++) {
+			((JavascriptExecutor) driver).executeScript("window.open()");
+		}
 
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
-		((JavascriptExecutor) driver).executeScript("window.open()");
 		// PASRSING JSON (getting data)
 
 		for (;;) {

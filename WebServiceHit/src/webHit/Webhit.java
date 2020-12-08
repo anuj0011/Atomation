@@ -115,7 +115,7 @@ public class Webhit {
 								try {
 
 									String text = driver.findElement(By.xpath(
-											"//*[@zzzzzzzid='product-name' or contains(text(),'Don’t worry...') or contains(@alt,'not-available')]"))
+											"//*[@id='product-name' or contains(text(),'Don’t worry...') or contains(@alt,'not-available')]"))
 											.getText();
 									System.out.println("LOADED");
 
@@ -166,7 +166,7 @@ public class Webhit {
 
 		try {
 
-			// temp(new File("C:/Users/my/AppData/Local/Temp")); // calling temp method to delete temp files
+			temp(new File("C:/Users/my/AppData/Local/Temp")); // calling temp method to delete temp files
 
 			TakesScreenshot screenshot = (TakesScreenshot) driver;
 

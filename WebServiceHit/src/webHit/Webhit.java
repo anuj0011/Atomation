@@ -148,6 +148,7 @@ public class Webhit {
 
 					// driver.manage().timeouts().implicitlyWait(30,
 					// TimeUnit.SECONDS);
+					driver.quit();
 					Thread.sleep(900000);
 					pricesave();
 				}
@@ -155,6 +156,7 @@ public class Webhit {
 				e.printStackTrace();
 				// driver.manage().timeouts().implicitlyWait(30,
 				// TimeUnit.SECONDS);
+				driver.quit();
 				Thread.sleep(900000);
 				pricesave();
 			}

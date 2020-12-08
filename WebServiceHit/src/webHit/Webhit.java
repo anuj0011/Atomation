@@ -38,6 +38,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Webhit {
 	public static WebDriver driver;
@@ -52,17 +53,25 @@ public class Webhit {
 	}
 
 	public static void pricesave() throws IOException, InterruptedException {
+
 		System.setProperty("webdriver.chrome.driver", "/home/anuj/chromedriver_linux64/chromedriver");
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
+//		driver = new ChromeDriver();
+//		driver.manage().window().maximize();
+
 		
+		// TO RUN IN HEADLESS CHROME BROWSER
+		ChromeOptions op = new ChromeOptions();
+		op.addArguments("window-size=1400,800");
+		op.addArguments("headless");
+		op.addArguments("--blink-settings=imagesEnabled=false");   // to disable image load
+		driver = new ChromeDriver(op);
+
 		// To open multiple browser tabs
-		for(int i = 0; i < 30; i++) {
+		for (int i = 0; i < 30; i++) {
 			((JavascriptExecutor) driver).executeScript("window.open()");
 		}
 
 		// PASRSING JSON (getting data)
-
 		for (;;) {
 			try {
 
@@ -106,7 +115,7 @@ public class Webhit {
 								try {
 
 									String text = driver.findElement(By.xpath(
-											"//*[@id='product-name' or contains(text(),'Don’t worry...') or contains(@alt,'not-available')]"))
+											"//*[@zzzzzzzid='product-name' or contains(text(),'Don’t worry...') or contains(@alt,'not-available')]"))
 											.getText();
 									System.out.println("LOADED");
 
@@ -157,7 +166,7 @@ public class Webhit {
 
 		try {
 
-			temp(new File("C:/Users/my/AppData/Local/Temp")); // calling temp method to delete temp files
+			// temp(new File("C:/Users/my/AppData/Local/Temp")); // calling temp method to delete temp files
 
 			TakesScreenshot screenshot = (TakesScreenshot) driver;
 
@@ -204,9 +213,9 @@ public class Webhit {
 			if (directoryPath.isDirectory()) {
 				File[] fileList = directoryPath.listFiles();
 				for (int i = 0; i < fileList.length; i++) {
-					temp(fileList[i]); //recursion to delete content of folder inside folder
+					temp(fileList[i]); // recursion to delete content of folder inside folder
 				}
-				if (!"Temp".equalsIgnoreCase(directoryPath.getName())) {  // not to delete the temp folder itself
+				if (!"Temp".equalsIgnoreCase(directoryPath.getName())) { // not to delete the temp folder itself
 					System.out.println("folder   delete " + directoryPath.getAbsolutePath());
 					directoryPath.delete();
 				}

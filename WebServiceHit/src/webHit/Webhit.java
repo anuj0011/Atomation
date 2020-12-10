@@ -9,7 +9,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -81,6 +83,10 @@ public class Webhit {
 				HttpURLConnection con = (HttpURLConnection) url1.openConnection();
 				con.setRequestMethod("GET");
 				int responseCode = con.getResponseCode();
+				
+				String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+				System.out.println(timeStamp);   // To get the time taken to load 120 urls
+
 				System.out.println("Sending get request : " + url1);
 				System.out.println("Response code : " + responseCode);
 				// Reading response from input Stream

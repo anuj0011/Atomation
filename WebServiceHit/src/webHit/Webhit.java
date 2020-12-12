@@ -12,6 +12,7 @@ import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -83,8 +84,8 @@ public class Webhit {
 				HttpURLConnection con = (HttpURLConnection) url1.openConnection();
 				con.setRequestMethod("GET");
 				int responseCode = con.getResponseCode();
-				
-				String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+
+				String timeStamp = new SimpleDateFormat("dd/MM/yyyy_HH:mm:ss").format(Calendar.getInstance().getTime());
 				System.out.println(timeStamp);   // To get the time taken to load 120 urls
 
 				System.out.println("Sending get request : " + url1);

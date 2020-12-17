@@ -47,7 +47,7 @@ public class Webhit {
 	public static WebDriver driver;
 	static String mailurl; // to send url with mail for slow detail
 
-	public static void main(String[] args)
+	public static void ubuyurl()
 
 			throws IOException, JSONException, org.json.simple.parser.ParseException, InterruptedException
 

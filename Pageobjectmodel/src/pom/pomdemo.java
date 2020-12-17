@@ -20,7 +20,7 @@ public class pomdemo {
 	@Test
 	public void f() {
 		System.setProperty("webdriver.chrome.driver",
-				"D:\\Lib\\chrome_driver_latest\\chromedriver_win32\\chromedriver.exe");
+				"/home/anuj/chromedriver_linux64/chromedriver");
 		WebDriver driver = new ChromeDriver();
 
 		

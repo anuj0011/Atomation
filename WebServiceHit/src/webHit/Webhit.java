@@ -40,12 +40,16 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Webhit {
 	public static WebDriver driver;
 	static String mailurl; // to send url with mail for slow detail
+	static long totalTime; // to send detail page load time
 
 	public static void main(String args[])
 
@@ -61,12 +65,12 @@ public class Webhit {
 //		driver = new ChromeDriver();
 //		driver.manage().window().maximize();
 
-		
 		// TO RUN IN HEADLESS CHROME BROWSER
 		ChromeOptions op = new ChromeOptions();
 		op.addArguments("window-size=1400,800");
 		op.addArguments("headless");
-		op.addArguments("--blink-settings=imagesEnabled=false");   // to disable image load
+		op.addArguments("--blink-settings=imagesEnabled=false"); // to disable image
+		// load
 		driver = new ChromeDriver(op);
 
 		// To open multiple browser tabs
@@ -86,7 +90,7 @@ public class Webhit {
 				int responseCode = con.getResponseCode();
 
 				String timeStamp = new SimpleDateFormat("dd/MM/yyyy_HH:mm:ss").format(Calendar.getInstance().getTime());
-				System.out.println(timeStamp);   // To get the time taken to load 120 urls
+				System.out.println(timeStamp); // To get the time taken to load 120 urls
 
 				System.out.println("Sending get request : " + url1);
 				System.out.println("Response code : " + responseCode);
@@ -147,22 +151,33 @@ public class Webhit {
 							driver.get(url0);
 							System.out.println(url0);
 
+							// TO SEND THE TIME TAKEN TO LOAD DETAIL PAGE
+							/*
+							 * try { if (k == 5) { long start = System.currentTimeMillis();
+							 * 
+							 * WebDriverWait wait = new WebDriverWait(driver, 60);
+							 * wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(
+							 * "//*[@id='product-name' or contains(text(),'Don’t worry...') or contains(@alt,'not-available')]"
+							 * )));
+							 * 
+							 * long finish = System.currentTimeMillis(); totalTime = finish - start;
+							 * System.out.println("Total Time for page load(MilliSeconds) - " + totalTime);
+							 * emailme2(); }
+							 * 
+							 * } catch (Exception e) { e.printStackTrace(); }
+							 */
+
 						}
 						i += 29;
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
-
-					// driver.manage().timeouts().implicitlyWait(30,
-					// TimeUnit.SECONDS);
 					driver.quit();
 					Thread.sleep(900000);
 					pricesave();
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
-				// driver.manage().timeouts().implicitlyWait(30,
-				// TimeUnit.SECONDS);
 				driver.quit();
 				Thread.sleep(900000);
 				pricesave();
@@ -214,6 +229,49 @@ public class Webhit {
 			System.out.println("Exception while taking screenshot " + e.getMessage());
 		}
 	}
+
+	// TO GET MAIL & SCREENSHOT THROUGH SMTP OF PAGE LOAD TIME
+	/*
+	 * public static void emailme2() {
+	 * 
+	 * try {
+	 * 
+	 * temp(new File("C:/Users/my/AppData/Local/Temp")); // calling temp method to
+	 * delete temp files
+	 * 
+	 * TakesScreenshot screenshot = (TakesScreenshot) driver;
+	 * 
+	 * @SuppressWarnings("unused") File src =
+	 * screenshot.getScreenshotAs(OutputType.FILE);
+	 * 
+	 * File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+	 * 
+	 * FileUtils.copyFile(file, new
+	 * File("/home/anuj/git/Atomation/WebServiceHit/Screenshots/screenshot.png"));
+	 * System.out.println("Screenshot Taken");
+	 * 
+	 * EmailAttachment attachment = new EmailAttachment(); attachment.setPath(
+	 * "/home/anuj/git/Atomation/WebServiceHit/Screenshots/screenshot.png");
+	 * attachment.setDisposition(EmailAttachment.ATTACHMENT);
+	 * attachment.setDescription("Error"); attachment.setName("Screen");
+	 * attachment.getURL();
+	 * 
+	 * // Create the email message MultiPartEmail email = new MultiPartEmail();
+	 * email.setHostName("smtp.gmail.com"); email.setSmtpPort(587);
+	 * email.setAuthenticator(new DefaultAuthenticator("manayasam@gmail.com",
+	 * "omitit123")); email.setSSLOnConnect(true);
+	 * email.setFrom("manayasam@gmail.com");
+	 * email.setSubject("DETAIL PAGE LOADING TIME");
+	 * email.setMsg("Total Time for page load(MilliSeconds) - " + totalTime);
+	 * email.addTo("anuj.bansal@ubuy.com"); email.addTo("pradeep.singh@ubuy.com");
+	 * 
+	 * email.attach(attachment); email.send();
+	 * 
+	 * }
+	 * 
+	 * catch (Exception e) { System.out.println("Exception while taking screenshot "
+	 * + e.getMessage()); } }
+	 */
 
 	// METHOD TO DELETE SYSTEM TEMP FILE
 	public static void temp(File directoryPath) throws IOException {

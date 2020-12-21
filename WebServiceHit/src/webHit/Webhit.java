@@ -14,6 +14,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import javax.activation.DataHandler;
@@ -46,11 +50,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Webhit {
+public class Webhit extends PageLoadTime {
 	public static WebDriver driver;
-	public static WebDriver driver2;
 	static String mailurl; // to send url with mail for slow detail
-	static long totalTime; // to send detail page load time
 
 	public static void main(String args[])
 
@@ -148,33 +150,12 @@ public class Webhit {
 								}
 
 							}
-							if (k != 5) {
+
+							if (z != 5) {
 								driver.get(url0);
 								System.out.println(url0);
 							} else {
-
-								// TO SEND THE TIME TAKEN TO LOAD DETAIL PAGE WITH IMAGE created new chorme driver2
-								op.addArguments("--blink-settings=imagesEnabled=true");
-								driver2 = new ChromeDriver(op);
-								driver2.get(url0);
-								try {
-
-									long start = System.currentTimeMillis();
-
-									WebDriverWait wait = new WebDriverWait(driver2, 60);
-									wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(
-											"//*[@id='product-name' or contains(text(),'Don’t worry...') or contains(@alt,'not-available')]")));
-
-									long finish = System.currentTimeMillis();
-									totalTime = finish - start;
-									System.out.println("Total Time for page load(MilliSeconds) - " + totalTime);
-									emailme2();
-									driver2.quit();
-								}
-
-								catch (Exception e) {
-									e.printStackTrace();
-								}
+								main(url0);
 							}
 
 						}
@@ -229,51 +210,6 @@ public class Webhit {
 			email.setSubject("DETAIL PROXY ISSUE");
 			email.setMsg("DETAIL PAGE NOT LOADING/LOADING SLOW  " + mailurl);
 			email.addTo("anuj.bansal@ubuy.com");
-
-			email.attach(attachment);
-			email.send();
-
-		}
-
-		catch (Exception e) {
-			System.out.println("Exception while taking screenshot " + e.getMessage());
-		}
-	}
-
-	// TO GET MAIL & SCREENSHOT OF "PAGE WITH IMAGE" LOAD TIME 
-
-	public static void emailme2() {
-
-		try {
-
-			TakesScreenshot screenshot = (TakesScreenshot) driver2;
-
-			@SuppressWarnings("unused")
-			File src = screenshot.getScreenshotAs(OutputType.FILE);
-
-			File file = ((TakesScreenshot) driver2).getScreenshotAs(OutputType.FILE);
-
-			FileUtils.copyFile(file, new File("/home/anuj/git/Atomation/WebServiceHit/Screenshots/screenshot.png"));
-			System.out.println("Screenshot Taken");
-
-			EmailAttachment attachment = new EmailAttachment();
-			attachment.setPath("/home/anuj/git/Atomation/WebServiceHit/Screenshots/screenshot.png");
-			attachment.setDisposition(EmailAttachment.ATTACHMENT);
-			attachment.setDescription("Error");
-			attachment.setName("Screen");
-			attachment.getURL();
-
-			// Create the email message
-			MultiPartEmail email = new MultiPartEmail();
-			email.setHostName("smtp.gmail.com");
-			email.setSmtpPort(587);
-			email.setAuthenticator(new DefaultAuthenticator("manayasam@gmail.com", "omitit123"));
-			email.setSSLOnConnect(true);
-			email.setFrom("manayasam@gmail.com");
-			email.setSubject("DETAIL PAGE LOADING TIME");
-			email.setMsg("Total Time for page load(MilliSeconds) - " + totalTime);
-			email.addTo("anuj.bansal@ubuy.com");
-			// email.addTo("pradeep.singh@ubuy.com");
 
 			email.attach(attachment);
 			email.send();

@@ -115,9 +115,13 @@ public class Webhit extends PageLoadTime {
 					Object obj = parser.parse(response.toString());
 					JSONArray array = (JSONArray) obj;
 					System.out.println(array.size());
+
+					int m = 0; // to skip calling the pageloadtime class 3 times to send mail after 1 hr
+
 					for (int i = 0; i < array.size(); i++) {
 						// System.out.println("The 1st element of array");
 						ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+
 						for (int z = 0; z < 30; z++) {
 							int k = i + z;
 
@@ -151,11 +155,24 @@ public class Webhit extends PageLoadTime {
 
 							}
 
-							if (z != 5) {
+							if (k != 5) {
 								driver.get(url0);
 								System.out.println(url0);
 							} else {
-								main(url0);
+
+								m++;
+								System.out.println(m);
+								// to skip calling the pageloadtime class 3 times to send mail after 1 hr
+								if (m == 4) {
+									// Calling main method from PageLoadTime class
+									main(url0);
+									m = 0;
+								} else {
+
+									driver.get(url0);
+									System.out.println(url0);
+
+								}
 							}
 
 						}

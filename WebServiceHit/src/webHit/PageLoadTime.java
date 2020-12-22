@@ -1,6 +1,6 @@
 package webHit;
 
-//TO SEND THE TIME TAKEN TO LOAD DETAIL PAGE WITH IMAGE
+//TO SEND THE TIME TAKEN TO LOAD DETAIL PAGE WITH IMAGE every hour
 import java.io.File;
 
 import org.apache.commons.io.FileUtils;

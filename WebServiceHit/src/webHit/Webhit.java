@@ -82,6 +82,8 @@ public class Webhit extends PageLoadTime {
 		}
 
 		// PASRSING JSON (getting data)
+		int m = 0; // to skip calling the pageloadtime class 3 times to send mail after 1 hr
+
 		for (;;) {
 			try {
 
@@ -115,8 +117,6 @@ public class Webhit extends PageLoadTime {
 					Object obj = parser.parse(response.toString());
 					JSONArray array = (JSONArray) obj;
 					System.out.println(array.size());
-
-					int m = 0; // to skip calling the pageloadtime class 3 times to send mail after 1 hr
 
 					for (int i = 0; i < array.size(); i++) {
 						// System.out.println("The 1st element of array");

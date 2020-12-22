@@ -78,7 +78,7 @@ public class PageLoadTime {
 			email.setAuthenticator(new DefaultAuthenticator("manayasam@gmail.com", "omitit123"));
 			email.setSSLOnConnect(true);
 			email.setFrom("manayasam@gmail.com");
-			email.setSubject("DETAIL PAGE LOADING TIME");
+			email.setSubject("DETAIL LOADING SPEED(MilliSeconds) - " + totalTime);
 			email.setMsg("Total Time for page load(MilliSeconds) - " + totalTime);
 			email.addTo("anuj.bansal@ubuy.com");
 			// email.addTo("pradeep.singh@ubuy.com");

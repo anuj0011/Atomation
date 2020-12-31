@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.github.rutledgepaulv</groupId>
+		<artifactId>maven</artifactId>
+		<version>1.1</version>
+	</parent>
+
+	<version>0.0.1-SNAPSHOT</version>
+	<groupId>Api</groupId>
+	<artifactId>Rest</artifactId>
+
+	<name>Rest</name>
+	<url>https://github.com/rutledgepaulv/Rest</url>
+	<description><!-- A riveting description --></description>
+
+	<scm>
+		<url>https://github.com/rutledgepaulv/Rest</url>
+		<connection>scm:git:git@github.com:rutledgepaulv/Rest.git</connection>
+	</scm>
+
+	<ciManagement>
+		<system>travis</system>
+		<url>https://travis-ci.org/rutledgepaulv/Rest</url>
+	</ciManagement>
+
+	<issueManagement>
+		<system>github</system>
+		<url>https://github.com/rutledgepaulv/Rest/issues</url>
+	</issueManagement>
+	<dependencies>
+
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>4.3.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+
+
+	</dependencies>
+
+
+</project>
